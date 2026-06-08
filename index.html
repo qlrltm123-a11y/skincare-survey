@@ -9,40 +9,36 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; background: #f0f2f5; color: #1a1a2e; }
 
-  header {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
-    color: white; padding: 24px 40px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  header h1 { font-size: 20px; font-weight: 700; }
-  header p { font-size: 12px; color: #a0aec0; margin-top: 4px; }
-  .badge { background: #e94560; color: white; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; }
-  .badge-gray { background: #4a5568; color: white; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; margin-top:5px; display:inline-block; }
-  .dl-btn { display:inline-flex; align-items:center; gap:6px; margin-top:8px; padding:6px 14px; background:#48bb78; color:white; border:none; border-radius:20px; font-size:11px; font-weight:700; cursor:pointer; text-decoration:none; }
-  .dl-btn:hover { background:#38a169; }
+  header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+    color: white; padding: 22px 36px; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+  header h1 { font-size: 19px; font-weight: 700; }
+  header p { font-size: 11px; color: #a0aec0; margin-top: 4px; }
+  .badges { display: flex; flex-direction: column; gap: 4px; align-items: flex-end; }
+  .badge { display:inline-block; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+  .badge-red { background: #e94560; color: white; }
+  .badge-gray { background: #4a5568; color: white; }
+  .badge-green { background: #38a169; color: white; cursor:pointer; }
+  .badge-green:hover { background: #276749; }
 
-  .warning-banner {
-    background: linear-gradient(90deg, #744210, #92400e);
-    color: #fef3c7; padding: 10px 32px;
-    display: flex; align-items: flex-start; gap: 10px; font-size: 11px; line-height: 1.6;
-  }
+  .warning-banner { background: linear-gradient(90deg, #744210, #92400e);
+    color: #fef3c7; padding: 9px 36px; display: flex; gap: 10px; font-size: 11px; line-height: 1.6; }
   .warning-banner strong { color: #fcd34d; }
 
-  .tab-nav { display: flex; gap: 0; background: #1a1a2e; padding: 0 32px; overflow-x: auto; }
-  .tab-btn { padding: 11px 16px; font-size: 12px; font-weight: 600; color: #718096; cursor: pointer;
+  .tab-nav { display: flex; background: #1a1a2e; padding: 0 36px; overflow-x: auto; border-bottom: 2px solid #0f3460; }
+  .tab-btn { padding: 11px 15px; font-size: 12px; font-weight: 600; color: #718096; cursor: pointer;
     border: none; background: none; border-bottom: 3px solid transparent; margin-bottom: -2px; white-space: nowrap; }
   .tab-btn.active { color: white; border-bottom-color: #e94560; }
-  .tab-btn:hover { color: #e2e8f0; }
+  .tab-btn:hover:not(.active) { color: #e2e8f0; }
 
   .tab-content { display: none; }
   .tab-content.active { display: block; }
 
-  .kpi-row { display: flex; gap: 14px; padding: 20px 28px 0; flex-wrap: wrap; }
-  .kpi { background: white; border-radius: 10px; padding: 16px 20px; flex: 1; min-width: 140px;
+  .kpi-row { display: flex; gap: 12px; padding: 18px 28px 0; flex-wrap: wrap; }
+  .kpi { background: white; border-radius: 10px; padding: 15px 18px; flex: 1; min-width: 130px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.07); border-left: 4px solid #e94560; }
-  .kpi .label { font-size: 11px; color: #718096; font-weight: 500; margin-bottom: 5px; line-height: 1.4; }
-  .kpi .value { font-size: 24px; font-weight: 800; color: #1a1a2e; }
-  .kpi .sub { font-size: 10px; color: #a0aec0; margin-top: 3px; }
+  .kpi .label { font-size: 10px; color: #718096; font-weight: 500; margin-bottom: 4px; line-height: 1.4; }
+  .kpi .value { font-size: 22px; font-weight: 800; }
+  .kpi .sub { font-size: 9px; color: #a0aec0; margin-top: 3px; }
   .kpi.blue { border-left-color: #4299e1; }
   .kpi.green { border-left-color: #48bb78; }
   .kpi.orange { border-left-color: #ed8936; }
@@ -50,90 +46,97 @@
   .kpi.gray { border-left-color: #718096; }
   .kpi.teal { border-left-color: #38b2ac; }
 
-  .grid { display: grid; padding: 16px 28px; gap: 16px; }
-  .grid-2 { grid-template-columns: 1fr 1fr; }
-  .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
-  .grid-5-3 { grid-template-columns: 5fr 3fr; }
-  .grid-4-6 { grid-template-columns: 4fr 6fr; }
-  .grid-6-4 { grid-template-columns: 6fr 4fr; }
+  .grid { display: grid; padding: 14px 28px; gap: 14px; }
+  .g2 { grid-template-columns: 1fr 1fr; }
+  .g3 { grid-template-columns: 1fr 1fr 1fr; }
+  .g53 { grid-template-columns: 5fr 3fr; }
+  .g64 { grid-template-columns: 6fr 4fr; }
+  .gfull { grid-column: 1 / -1; }
 
-  .card { background: white; border-radius: 12px; padding: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+  .card { background: white; border-radius: 12px; padding: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
   .card h2 { font-size: 13px; font-weight: 700; color: #2d3748; margin-bottom: 3px; }
-  .card .desc { font-size: 10px; color: #a0aec0; margin-bottom: 16px; }
-  .card-full { grid-column: 1 / -1; }
+  .card .desc { font-size: 10px; color: #a0aec0; margin-bottom: 14px; }
   canvas { max-height: 280px; }
 
   /* 퍼널 */
-  .funnel-wrap { display: flex; flex-direction: column; gap: 9px; margin-top: 8px; }
-  .funnel-brand { margin-bottom: 2px; }
-  .funnel-brand-name { font-size: 11px; font-weight: 700; color: #2d3748; margin-bottom: 5px; display: flex; justify-content: space-between; }
-  .funnel-bar-row { display: flex; height: 26px; border-radius: 5px; overflow: hidden; width: 100%; }
-  .funnel-seg { display: flex; align-items: center; justify-content: center;
-    font-size: 10px; font-weight: 600; color: white; }
-  .funnel-legend { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
-  .legend-item { display: flex; align-items: center; gap: 4px; font-size: 10px; color: #4a5568; }
-  .legend-dot { width: 9px; height: 9px; border-radius: 2px; flex-shrink: 0; }
+  .fl { display: flex; flex-direction: column; gap: 9px; margin-top: 8px; }
+  .fb-name { font-size: 11px; font-weight: 700; color: #2d3748; margin-bottom: 4px; display: flex; justify-content: space-between; }
+  .fb-row { display: flex; height: 26px; border-radius: 5px; overflow: hidden; }
+  .fb-seg { display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: white; }
+  .fleg { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+  .fleg-item { display: flex; align-items: center; gap: 4px; font-size: 10px; color: #4a5568; }
+  .fleg-dot { width: 9px; height: 9px; border-radius: 2px; flex-shrink: 0; }
 
   /* 히트맵 */
-  .heatmap-table { width: 100%; border-collapse: collapse; font-size: 10px; }
-  .heatmap-table th { background: #f7fafc; color: #718096; font-weight: 600;
-    padding: 7px 5px; text-align: center; border-bottom: 2px solid #e2e8f0; }
-  .heatmap-table td { padding: 6px 5px; text-align: center; font-weight: 600;
-    border-bottom: 1px solid #f0f4f8; }
-  .heatmap-table td:first-child { text-align: left; font-weight: 700; color: #2d3748; background: #fafafa; padding-left: 8px; }
+  .hmt { width: 100%; border-collapse: collapse; font-size: 10px; }
+  .hmt th { background: #f7fafc; color: #718096; font-weight: 600; padding: 6px 5px; text-align: center; border-bottom: 2px solid #e2e8f0; }
+  .hmt td { padding: 6px 5px; text-align: center; font-weight: 600; border-bottom: 1px solid #f0f4f8; }
+  .hmt td:first-child { text-align: left; font-weight: 700; color: #2d3748; background: #fafafa; padding-left: 8px; }
 
-  /* 만족도 게이지 */
-  .gauge-row { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
-  .gauge-item { display: flex; align-items: center; gap: 8px; }
-  .gauge-label { font-size: 11px; color: #4a5568; width: 120px; flex-shrink: 0; line-height: 1.3; }
-  .gauge-bar { flex: 1; height: 18px; background: #edf2f7; border-radius: 9px; overflow: hidden; }
-  .gauge-fill { height: 100%; border-radius: 9px; display: flex; align-items: center; justify-content: flex-end; padding-right: 7px; }
-  .gauge-fill span { font-size: 10px; font-weight: 700; color: white; }
-  .gauge-val { font-size: 12px; font-weight: 800; width: 44px; text-align: right; }
+  /* 게이지 */
+  .glist { display: flex; flex-direction: column; gap: 9px; margin-top: 6px; }
+  .gitem { display: flex; align-items: center; gap: 8px; }
+  .glabel { font-size: 11px; color: #4a5568; width: 110px; flex-shrink: 0; line-height: 1.3; }
+  .gbar { flex: 1; height: 18px; background: #edf2f7; border-radius: 9px; overflow: hidden; }
+  .gfill { height: 100%; border-radius: 9px; display: flex; align-items: center; justify-content: flex-end; padding-right: 7px; }
+  .gfill span { font-size: 10px; font-weight: 700; color: white; }
+  .gval { font-size: 12px; font-weight: 800; width: 40px; text-align: right; }
 
-  /* 장벽 */
-  .barrier-list { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
-  .barrier-row { display: flex; align-items: center; gap: 7px; }
-  .barrier-rank { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center;
+  /* 순위 리스트 */
+  .rlist { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+  .rrow { display: flex; align-items: center; gap: 7px; }
+  .rrank { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center;
     justify-content: center; font-size: 10px; font-weight: 800; color: white; flex-shrink: 0; }
-  .barrier-text { font-size: 11px; color: #4a5568; flex: 1; line-height: 1.3; }
-  .barrier-pct { font-size: 12px; font-weight: 800; width: 38px; text-align: right; }
-  .barrier-bar-bg { height: 5px; background: #edf2f7; border-radius: 3px; margin-top: 2px; flex: 1; }
-  .barrier-bar-fill { height: 5px; border-radius: 3px; }
+  .rtext { font-size: 11px; color: #4a5568; flex: 1; line-height: 1.3; }
+  .rpct { font-size: 12px; font-weight: 800; width: 38px; text-align: right; }
+  .rbar-bg { height: 5px; background: #edf2f7; border-radius: 3px; flex: 1; }
+  .rbar-fill { height: 5px; border-radius: 3px; }
 
   /* 인사이트 */
-  .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .insight-item { background: #f7fafc; border-radius: 8px; padding: 12px 14px; border-left: 3px solid #4299e1; }
-  .insight-item.warn { border-left-color: #ed8936; }
-  .insight-item.success { border-left-color: #48bb78; }
-  .insight-item.alert { border-left-color: #e94560; }
-  .insight-title { font-size: 11px; font-weight: 700; color: #2d3748; margin-bottom: 4px; }
-  .insight-text { font-size: 10px; color: #718096; line-height: 1.6; }
+  .igrid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .icard { background: #f7fafc; border-radius: 8px; padding: 12px 14px; border-left: 3px solid #4299e1; }
+  .icard.warn { border-left-color: #ed8936; }
+  .icard.ok { border-left-color: #48bb78; }
+  .icard.alert { border-left-color: #e94560; }
+  .icard.purple { border-left-color: #9f7aea; }
+  .ititle { font-size: 11px; font-weight: 700; color: #2d3748; margin-bottom: 4px; }
+  .itext { font-size: 10px; color: #718096; line-height: 1.6; }
 
-  /* 바스켓 분석 */
-  .basket-table { width: 100%; border-collapse: collapse; font-size: 11px; }
-  .basket-table th { background: #1a1a2e; color: white; padding: 8px 10px; text-align: left; }
-  .basket-table td { padding: 7px 10px; border-bottom: 1px solid #f0f4f8; }
-  .basket-table tr:hover td { background: #f7fafc; }
-  .lift-badge { display: inline-block; padding: 2px 7px; border-radius: 10px; font-size: 10px; font-weight: 700; }
+  /* 출처 태그 */
+  .src { display:inline-block; font-size:9px; color:#718096; background:#f7fafc; border:1px solid #e2e8f0;
+    border-radius:4px; padding:2px 6px; margin-bottom:10px; }
+  .src.red { background:#fff5f5; border-color:#fed7d7; color:#c53030; }
 
-  /* 포지셔닝 */
-  .pos-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-top: 10px; }
-  .pos-brand { background: #f7fafc; border-radius: 8px; padding: 10px 12px; border: 1.5px solid #e2e8f0; }
-  .pos-brand.highlight { border-color: #e94560; background: #fff5f5; }
-  .pos-name { font-size: 11px; font-weight: 700; color: #2d3748; margin-bottom: 6px; }
-  .pos-bar-row { display: flex; flex-direction: column; gap: 4px; }
-  .pos-bar-item { display: flex; align-items: center; gap: 5px; font-size: 10px; color: #718096; }
-  .pos-bar-bg { flex: 1; height: 6px; background: #edf2f7; border-radius: 3px; }
-  .pos-bar-fill { height: 6px; border-radius: 3px; }
+  /* 바스켓 */
+  .btable { width: 100%; border-collapse: collapse; font-size: 11px; }
+  .btable th { background: #1a1a2e; color: white; padding: 8px 10px; text-align: left; }
+  .btable td { padding: 7px 10px; border-bottom: 1px solid #f0f4f8; }
+  .btable tr:hover td { background: #f7fafc; }
+  .lbadge { display: inline-block; padding: 2px 7px; border-radius: 10px; font-size: 10px; font-weight: 700; }
 
-  footer { text-align: center; padding: 16px; color: #a0aec0; font-size: 10px; margin-top: 10px; }
+  /* 전략 제안 */
+  .step-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 6px; }
+  .step-card { border-radius: 10px; padding: 16px; border: 1.5px solid #e2e8f0; }
+  .step-num { font-size: 11px; font-weight: 700; margin-bottom: 8px; }
+  .step-title { font-size: 13px; font-weight: 800; margin-bottom: 8px; }
+  .step-body { font-size: 11px; color: #4a5568; line-height: 1.7; }
+  .step-kpi { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+  .step-kpi-item { background: white; border-radius: 6px; padding: 6px 10px; font-size: 10px; font-weight: 700; }
 
-  @media (max-width: 900px) {
-    .grid-2, .grid-3, .grid-5-3, .grid-4-6, .grid-6-4 { grid-template-columns: 1fr; }
-    .insight-grid { grid-template-columns: 1fr; }
-    .pos-grid { grid-template-columns: 1fr 1fr; }
+  /* 가격 단계 */
+  .price-steps { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+  .price-step { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 8px; }
+  .ps-num { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: white; flex-shrink: 0; }
+  .ps-content { flex: 1; }
+  .ps-price { font-size: 13px; font-weight: 800; }
+  .ps-desc { font-size: 10px; color: #718096; margin-top: 2px; }
+  .ps-bar { width: 60px; height: 8px; border-radius: 4px; }
+
+  footer { text-align: center; padding: 14px; color: #a0aec0; font-size: 10px; margin-top: 8px; }
+
+  @media (max-width: 860px) {
+    .g2,.g3,.g53,.g64 { grid-template-columns: 1fr; }
+    .igrid, .step-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -142,211 +145,276 @@
 <header>
   <div>
     <h1>🧴 스킨케어 브랜드 인지도·구매 조사 대시보드</h1>
-    <p>일본 시장 / BIOHEAL BOH 포함 한일 주요 브랜드 11개 / inglewood 조사 리포트 (2026.05.13)</p>
+    <p>일본 시장 / BIOHEAL BOH 포함 한일 주요 브랜드 11개 비교 / inglewood 조사 리포트 (2026.05.13)</p>
   </div>
-  <div style="text-align:right">
-    <div class="badge">본조사 N = 505명</div>
-    <div class="badge-gray">스크리닝 N = 22,578명</div>
-    <a id="dlBtn" class="dl-btn" download="skincare_dashboard.html">⬇ HTML 다운로드</a>
+  <div class="badges">
+    <span class="badge badge-red">본조사 N = 505명</span>
+    <span class="badge badge-gray">스크리닝 N = 22,578명</span>
+    <a id="dlBtn" class="badge badge-green">⬇ 다운로드</a>
   </div>
 </header>
 
 <div class="warning-banner">
   <span style="font-size:16px;flex-shrink:0">⚠️</span>
   <div>
-    <strong>【샘플 설계 주의】</strong> 본조사(N=505)는 <strong>BOH 인지자만 대상</strong>인 목적 조사 — BOH 과거 구매자 243명 + BOH 인지 미구매자 262명으로 구성.
-    BOH 구매율이 타 브랜드 대비 높은 것은 <strong>설계의 결과</strong>이며 실제 시장 점유율이 아님. 실제 시장 기준(N=22,578): BOH 인지율 5.4%, 구매율 2.0%.
+    <strong>【샘플 설계 주의】</strong> 본조사(N=505)는 <strong>BOH 인지자만 대상</strong>인 목적 조사 — BOH 과거 구매자 243명 + BOH 인지 미구매자 262명. BOH 구매율이 높은 것은 <strong>설계의 결과</strong>이며 실제 시장 점유율이 아님. 실제 BOH 인지율: <strong>5.4%</strong>, 구매율: <strong>2.0%</strong> (N=22,578 기준).
   </div>
 </div>
 
 <div class="tab-nav">
-  <button class="tab-btn active" onclick="switchTab('overview',this)">📊 전체 개요</button>
-  <button class="tab-btn" onclick="switchTab('funnel',this)">🔻 구매 퍼널</button>
-  <button class="tab-btn" onclick="switchTab('satisfaction',this)">⭐ 만족도·구매이유·장벽</button>
-  <button class="tab-btn" onclick="switchTab('concern',this)">💆 피부 고민·관심도</button>
-  <button class="tab-btn" onclick="switchTab('behavior',this)">🛍 구매 행동 분석</button>
-  <button class="tab-btn" onclick="switchTab('market',this)">🌐 실제 시장 데이터</button>
+  <button class="tab-btn active" onclick="sw('overview',this)">📊 전체 개요</button>
+  <button class="tab-btn" onclick="sw('funnel',this)">🔻 구매 퍼널</button>
+  <button class="tab-btn" onclick="sw('satisfaction',this)">⭐ 만족도·구매이유·장벽</button>
+  <button class="tab-btn" onclick="sw('concern',this)">💆 피부 고민·포지셔닝</button>
+  <button class="tab-btn" onclick="sw('behavior',this)">🛍 구매 행동</button>
+  <button class="tab-btn" onclick="sw('market',this)">🌐 실제 시장 데이터</button>
+  <button class="tab-btn" onclick="sw('strategy',this)">🎯 전략 제안</button>
 </div>
 
 <!-- ======== TAB 1: 전체 개요 ======== -->
 <div id="tab-overview" class="tab-content active">
   <div class="kpi-row">
-    <div class="kpi"><div class="label">BOH 실제 인지율 (N=22,578)</div><div class="value" style="color:#e94560">5.4%</div><div class="sub">일본 전체 모집단 기준</div></div>
-    <div class="kpi blue"><div class="label">BOH 실제 구매 경험율</div><div class="value">2.0%</div><div class="sub">일본 시장 실제 침투율</div></div>
-    <div class="kpi green"><div class="label">BOH 구매자 만족도 Top2</div><div class="value">72.8%</div><div class="sub">구매 경험 만족 (N=243)</div></div>
-    <div class="kpi orange"><div class="label">BOH 주 사용 브랜드율</div><div class="value">15.4%</div><div class="sub">한국 브랜드 중 1위 (본조사)</div></div>
+    <div class="kpi"><div class="label">BOH 실제 인지율 (N=22,578)</div><div class="value" style="color:#e94560">5.4%</div><div class="sub">1,229명 인지 / 일본 전체 기준</div></div>
+    <div class="kpi blue"><div class="label">BOH 실제 구매 경험율</div><div class="value">2.0%</div><div class="sub">460명 구매 / 일본 전체 기준</div></div>
+    <div class="kpi green"><div class="label">BOH 구매자 만족도 Top2</div><div class="value">72.8%</div><div class="sub">구매 경험 만족 (본조사 N=243)</div></div>
+    <div class="kpi orange"><div class="label">BOH 주 사용 브랜드율</div><div class="value">15.4%</div><div class="sub">한국 브랜드 중 압도적 1위 (본조사)</div></div>
     <div class="kpi purple"><div class="label">BOH 인지→비구매율</div><div class="value">51.9%</div><div class="sub">핵심 전환 과제</div></div>
-    <div class="kpi teal"><div class="label">25-29세 BOH 인지율</div><div class="value">11.8%</div><div class="sub">전 연령 중 최고, 60-65세 1.4%</div></div>
+    <div class="kpi teal"><div class="label">25-29세 BOH 인지율</div><div class="value">11.8%</div><div class="sub">전 연령 최고 / 60-65세는 1.4%</div></div>
   </div>
 
-  <div class="grid grid-2">
+  <div class="grid g2">
     <div class="card">
       <h2>📊 브랜드 인지율 비교 <span style="font-size:9px;color:#e94560">(본조사 N=505 / BOH 인지자 한정)</span></h2>
-      <p class="desc">BOH 인지자 대상 샘플이므로 전체 시장보다 수치 높음</p>
+      <span class="src">📄 main_tab.xlsx ％表 / SQ6S1 알고 있는 브랜드 전체 / 본조사 N=505</span>
+      <p class="desc">BOH 인지자 대상 샘플 → 한국 브랜드 수치가 실제보다 높게 나타남</p>
       <canvas id="awarenessChart"></canvas>
     </div>
     <div class="card">
-      <h2>🛒 구매 경험률 3단계 비교</h2>
-      <p class="desc">과거 구매 / 1년 이내 / 현재 주 사용 (본조사 기준)</p>
+      <h2>🛒 구매 경험률 3단계 비교 <span style="font-size:9px;color:#718096">(본조사)</span></h2>
+      <span class="src">📄 main_tab.xlsx ％表 / SQ6S1~S4 / 본조사 N=505</span>
+      <p class="desc">과거 구매 / 1년 이내 구매 / 현재 주 사용 브랜드</p>
       <canvas id="purchaseChart"></canvas>
     </div>
   </div>
 
   <div class="grid">
-    <div class="card card-full">
+    <div class="card gfull">
       <h2>💡 핵심 인사이트 종합</h2>
-      <p class="desc">inglewood 조사 리포트 전체 데이터 기반</p>
-      <div class="insight-grid">
-        <div class="insight-item alert">
-          <div class="insight-title">🚨 실제 시장 침투율 낮음 — 인지도 확대가 최우선</div>
-          <div class="insight-text">일본 전체(N=22,578) 기준 BOH 인지율 <strong style="color:#e94560">5.4%</strong>, 구매율 <strong style="color:#e94560">2.0%</strong>. 25-29세가 11.8%로 가장 높고 연령 올라갈수록 급감. 40대 이상 인지도 확대 필수.</div>
+      <p class="desc">inglewood 조사 리포트 전체 데이터 기반 — 수치는 출처 명기</p>
+      <div class="igrid">
+        <div class="icard alert">
+          <div class="ititle">🚨 실제 시장 침투율 극히 낮음 — 인지도 확대가 최우선</div>
+          <div class="itext">일본 전체(N=22,578) 기준 BOH 인지율 <strong style="color:#e94560">5.4%</strong>, 구매율 <strong style="color:#e94560">2.0%</strong>. 25-29세(11.8%)가 가장 높고 연령 올라갈수록 급감. 60-65세는 1.4%로 거의 미개척.</div>
         </div>
-        <div class="insight-item success">
-          <div class="insight-title">✅ 한번 산 사람은 계속 산다 — 충성도 강함</div>
-          <div class="insight-text">구매 경험자 만족도 Top2Box <strong style="color:#48bb78">72.8%</strong>, 주 사용 브랜드 유지율 한국 브랜드 압도적 1위. BOH 구매자 그룹에서 Anua(40-49세 56.3%), numbuzin 등 복수 K-beauty 병용 경향.</div>
+        <div class="icard ok">
+          <div class="ititle">✅ 한번 산 사람은 계속 산다 — 충성도·만족도 강함</div>
+          <div class="itext">구매 경험자 만족도 <strong style="color:#48bb78">72.8%</strong>, 재구매 의향 <strong style="color:#48bb78">65.0%</strong>. 특히 스킨케어 월 지출 2만엔↑ 고객은 만족도 <strong style="color:#48bb78">87.1%</strong>, 재구매 의향 <strong style="color:#48bb78">93.5%</strong>로 극히 높음.</div>
         </div>
-        <div class="insight-item warn">
-          <div class="insight-title">⚠️ 구매처 불명이 최대 장벽 — 유통 확대 필요</div>
-          <div class="insight-text">비구매 이유 1위 <strong style="color:#ed8936">"어디서 살 수 있는지 모름" 42.7%</strong>. Amazon·Yahoo!가 구매처의 50-60%를 차지하므로 EC 채널 강화가 단기 전략 핵심.</div>
+        <div class="icard warn">
+          <div class="ititle">⚠️ 구매 장벽 1위: "어디서 파는지 모름" 42.7%</div>
+          <div class="itext">Amazon/Yahoo!가 구매처의 50~60%를 차지. EC 채널 강화가 단기 전략 핵심. BOH 비구매자의 EC 경유 구매 의향 <strong style="color:#ed8936">18.9%</strong>로 즉각적인 유통 접근성 개선 효과 기대.</div>
         </div>
-        <div class="insight-item">
-          <div class="insight-title">🎯 피부 고민 × BOH 포지션 — 에이징케어 기회</div>
-          <div class="insight-text">응답자의 69.7%가 모공/피지, 58.4%가 건조, 51.1%가 탄력저하 고민. BOH 구매자는 <strong style="color:#4299e1">건조(63.4%)·탄력(48.1%)</strong> 고민이 두드러져 PDRN·CICA 성분 소구가 유효.</div>
+        <div class="icard purple">
+          <div class="ititle">🔬 BOH 사용자 = 탄력저하·여드름 고민층 — 명확한 타깃</div>
+          <div class="itext">BOH 구매자는 일반 대비 탄력저하 <strong style="color:#9f7aea">+17%p</strong>, 여드름 <strong style="color:#9f7aea">+17%p</strong>, 건조 <strong style="color:#9f7aea">+7%p</strong> 높음. 피부 고민 없는 비율 <strong style="color:#9f7aea">단 2.5%</strong>(전체 19.2%). PDRN·CICA 성분 소구 정확히 유효.</div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="grid grid-5-3" style="padding-bottom:24px">
+  <div class="grid g53" style="padding-bottom:22px">
     <div class="card">
-      <h2>🥧 현재 주 사용 브랜드 점유율 <span style="font-size:9px;color:#718096">(본조사 N=505)</span></h2>
-      <p class="desc">단일 선택 / ※ BOH 인지자 샘플이므로 BOH 수치 과대 반영</p>
+      <h2>🥧 현재 주 사용 브랜드 점유율 <span style="font-size:9px;color:#718096">(본조사 N=505 / BOH 인지자 기준)</span></h2>
+      <span class="src">📄 main_tab.xlsx ％表 / SQ6S4 현재 주로 사용 브랜드 / 본조사 N=505</span>
+      <p class="desc">단일 선택 / BOH 인지자 샘플이므로 BOH 수치 과대 반영</p>
       <canvas id="pieChart" style="max-height:250px"></canvas>
     </div>
     <div class="card">
-      <h2>📉 BOH 비구매자 경쟁 브랜드</h2>
-      <p class="desc">BOH 인지 미구매자(N=262) 현재 주 사용 브랜드</p>
+      <h2>📉 BOH 비구매자의 대체 브랜드 <span style="font-size:9px;color:#718096">(N=262)</span></h2>
+      <span class="src">📄 main_tab.xlsx ％表 / SQ6S4 / BOH 인지 미구매자 N=262</span>
+      <p class="desc">BOH를 알지만 안 산 262명이 현재 주로 쓰는 브랜드</p>
       <canvas id="nonBuyerChart"></canvas>
     </div>
   </div>
 </div>
 
-<!-- ======== TAB 2: 구매 퍼널 ======== -->
+<!-- ======== TAB 2: 퍼널 ======== -->
 <div id="tab-funnel" class="tab-content">
   <div class="grid">
-    <div class="card card-full">
+    <div class="card gfull">
       <h2>🔻 브랜드별 구매 퍼널 (전체 N=505)</h2>
-      <p class="desc">비인지 → 인지미구매 → 과거구매 → 1년이내구매 → 주구매 / ⚠️ BOH는 설계상 비인지=0%</p>
-      <div class="funnel-legend">
-        <div class="legend-item"><div class="legend-dot" style="background:#cbd5e0"></div>비인지</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#fc8181"></div>인지미구매</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#f6ad55"></div>과거구매</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#68d391"></div>1년이내구매</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#4299e1"></div>주구매</div>
+      <span class="src">📄 main_tab.xlsx ％表 / vSQ6S1~S11 브랜드별 퍼널 / 본조사 N=505</span>
+      <p class="desc">비인지 → 인지미구매 → 과거구매 → 1년이내구매 → 주구매 / ⚠️ BOH는 샘플 설계상 비인지=0%로 고정</p>
+      <div class="fleg">
+        <div class="fleg-item"><div class="fleg-dot" style="background:#cbd5e0"></div>비인지</div>
+        <div class="fleg-item"><div class="fleg-dot" style="background:#fc8181"></div>인지 미구매</div>
+        <div class="fleg-item"><div class="fleg-dot" style="background:#f6ad55"></div>과거 구매</div>
+        <div class="fleg-item"><div class="fleg-dot" style="background:#68d391"></div>1년이내 구매</div>
+        <div class="fleg-item"><div class="fleg-dot" style="background:#4299e1"></div>주 구매</div>
       </div>
-      <div class="funnel-wrap" id="funnelWrap"></div>
+      <div class="fl" id="funnelWrap"></div>
     </div>
   </div>
 
-  <div class="grid grid-2" style="padding-bottom:24px">
+  <div class="grid g2" style="padding-bottom:22px">
     <div class="card">
       <h2>📈 BOH 과거 구매자 — 연령별 현황 (N=243)</h2>
-      <p class="desc">연령별 1년 이내 구매율 vs 현재 주 사용율</p>
+      <p class="desc">1년 이내 구매율 vs 현재 주 사용율 / 모든 연령대서 활발한 재구매</p>
       <canvas id="bohBuyerChart"></canvas>
     </div>
     <div class="card">
-      <h2>🗓 연령대별 1년이내 구매율 히트맵</h2>
-      <p class="desc">★ BOH 과거구매자 vs ☆ BOH 인지미구매자</p>
-      <div style="overflow-x:auto"><table class="heatmap-table" id="heatmapTable"></table></div>
+      <h2>🔄 BOH 구매자 이탈 후 대체 브랜드 (Q8, N=243)</h2>
+      <p class="desc">BOH 구매자가 BOH 외에 현재 사용 중인 브랜드 / Anua가 최대 경쟁자</p>
+      <canvas id="churnChart"></canvas>
     </div>
   </div>
 </div>
 
 <!-- ======== TAB 3: 만족도·구매이유·장벽 ======== -->
 <div id="tab-satisfaction" class="tab-content">
-  <div class="grid grid-3">
+  <div class="grid g3">
     <div class="card">
       <h2>⭐ BOH 구매자 만족도 Top2Box <span style="font-size:9px;color:#718096">N=243</span></h2>
-      <p class="desc">매우만족+만족 비율 / 전 연령대 공통 고만족</p>
-      <div class="gauge-row" id="satisfactionGauge"></div>
+      <span class="src">📄 PDF p.14 / Excel No.51-54 Q7S1~S4 / BOH 구매자 N=243<br>Q7S1사용감·Q7S2탄력효과·Q7S3가격대비·Q7S4계속사용</span>
+      <p class="desc">매우만족+만족 비율 / 전 항목 65%↑</p>
+      <div class="glist" id="satGauge"></div>
     </div>
     <div class="card">
       <h2>🛒 BOH 구매 이유 Top <span style="font-size:9px;color:#718096">N=243 복수선택</span></h2>
-      <p class="desc">BOH를 구매한 주요 이유 — K-beauty 브랜드 요소가 1위</p>
-      <div class="barrier-list" id="buyReasonList"></div>
+      <span class="src">📄 PDF p.12 / Topics2 Q5 BIOHEAL BOH 구매 결정 요인 (Excel No.49) / 본조사 BOH 구매자 N=243</span>
+      <p class="desc">K-beauty/한국 브랜드 인식이 압도적 1위</p>
+      <div class="rlist" id="buyReasonList"></div>
     </div>
     <div class="card">
       <h2>🚧 BOH 비구매 이유 <span style="font-size:9px;color:#718096">N=262 복수선택</span></h2>
-      <p class="desc">BOH를 알지만 사지 않은 이유 — 유통 접근성이 핵심</p>
-      <div class="barrier-list" id="barrierList"></div>
+      <span class="src">📄 PDF p.17 / Q10 BIOHEAL BOH 비구매 이유 (Excel No.58 Q10) / 본조사 BOH 인지 미구매자 N=262</span>
+      <p class="desc">구매처 불명이 1위 → EC 채널 강화가 핵심</p>
+      <div class="rlist" id="barrierList"></div>
     </div>
   </div>
 
-  <div class="grid grid-2" style="padding-bottom:24px">
+  <div class="grid g2">
     <div class="card">
       <h2>📋 BOH 구매 카테고리 <span style="font-size:9px;color:#718096">N=243 복수선택</span></h2>
-      <p class="desc">어떤 BOH 제품을 구매했는가 — 세럼이 압도적 1위</p>
+      <span class="src red">⚠️ PDF p.15 Topics4 / BOH 구매 카테고리 / N=243 ※Excel Q6는 불만사항 질문, 이 카테고리 데이터는 PDF 보고서 자체 집계 (Excel 대조 불가)</span>
+      <p class="desc">세럼/미용액이 압도적 1위(36.6%) — BOH의 핵심 카테고리</p>
       <canvas id="categoryChart"></canvas>
     </div>
     <div class="card">
-      <h2>🔄 BOH 비구매자 구매 의향 <span style="font-size:9px;color:#718096">N=262</span></h2>
-      <p class="desc">향후 BOH를 구매할 의향 (5단계) — 긍정 20.2%, 부정 58.4%</p>
+      <h2>📊 만족도 × 연령대·스킨케어 지출별 <span style="font-size:9px;color:#718096">N=243</span></h2>
+      <p class="desc">구매 경험 만족도 Top2Box / 고지출층·고연령에서 만족도 높음</p>
+      <canvas id="satDetailChart"></canvas>
+    </div>
+  </div>
+
+  <div class="grid g2" style="padding-bottom:22px">
+    <div class="card">
+      <h2>🔄 BOH 비구매자 향후 구매 의향 <span style="font-size:9px;color:#718096">N=262</span></h2>
+      <span class="src">📄 PDF p.17 / Topics5 구매 의향 / Excel No.59 Q11 / N=262</span>
+      <p class="desc">긍정(매우+그렇다) 20.2% / 부정(그렇지않다+전혀) 58.4%</p>
       <canvas id="intentChart"></canvas>
+    </div>
+    <div class="card">
+      <h2>📡 BOH 인지 경로 <span style="font-size:9px;color:#718096">N=262 비구매자 기준</span></h2>
+      <span class="src red">⚠️ PDF p.17 / Excel No.48 Q4 BOH 최초 인지 계기 / N=262<br>※ PDF 보고서 "Q10" 표기 ≠ Excel Q10(비구매이유). 실제 인지경로는 Excel Q4</span>
+      <p class="desc">BOH를 처음 알게 된 채널 / SNS가 최대 인지 경로</p>
+      <canvas id="channelChart"></canvas>
     </div>
   </div>
 </div>
 
-<!-- ======== TAB 4: 피부 고민·관심도 ======== -->
+<!-- ======== TAB 4: 피부 고민·포지셔닝 ======== -->
 <div id="tab-concern" class="tab-content">
-  <div class="grid grid-2">
+  <div class="grid g2">
     <div class="card">
-      <h2>💆 피부 고민 항목 비교 (Q3)</h2>
-      <p class="desc">전체·BOH 구매자·비구매자별 피부 고민 분포 — 탄력/건조가 BOH 구매자에 두드러짐</p>
+      <h2>💆 피부 고민 분포 — 그룹별 비교</h2>
+      <span class="src">✅ 출처: Excel main_tab.xlsx %012 / SQ5 피부 고민(최대3개선택) / 본조사 N=505 직접 확인</span>
+      <p class="desc">Excel SQ5 실데이터: 기미 42.4%가 1위 (기존 잘못된 Q3 라인사용 데이터 완전 교체)</p>
       <canvas id="concernChart"></canvas>
     </div>
     <div class="card">
-      <h2>✨ 스킨케어 관심도 (Q14 Top2Box)</h2>
-      <p class="desc">매우 관심 있음 + 관심 있음 / 연령·그룹별 비교</p>
+      <h2>🔬 BOH 구매자 vs 일반 모집단 피부 고민 격차</h2>
+      <span class="src">✅ Excel %012 SQ5 본조사 N=505 실데이터 기반 (구매자 N=243 vs 비구매자 N=262)</span>
+      <p class="desc">양(+) = 구매자가 비구매자보다 더 높은 고민 / 처짐·탄력이 구매자에서 두드러짐</p>
+      <canvas id="concernDiffChart"></canvas>
+    </div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card">
+      <h2>🏷 브랜드별 사용자 피부 고민 레이더</h2>
+      <span class="src">📄 PDF p.9 / Topics1 포지셔닝맵 기반 / N=22,578 스크리닝</span>
+      <p class="desc">각 브랜드 실제 사용자의 피부 고민 프로파일 — BOH는 탄력·여드름·건조에 특화</p>
+      <canvas id="brandConcernChart"></canvas>
+    </div>
+    <div class="card">
+      <h2>✨ 스킨케어 관심도 Top2Box (Q14)</h2>
+      <span class="src">📄 PDF p.19 / Topics6 스킨케어 관심도 / 본조사 N=505 ※PDF 내부 번호, Excel Q14(상품의향)와 다른 질문</span>
+      <p class="desc">매우 관심+관심 비율 / 50대 74.0% 최고 — 고연령 관심도 높음</p>
       <canvas id="interestChart"></canvas>
     </div>
   </div>
 
-  <div class="grid grid-2" style="padding-bottom:24px">
+  <div class="grid g2" style="padding-bottom:22px">
     <div class="card">
-      <h2>🔬 피부 고민별 BOH 구매자 vs 비구매자 격차</h2>
-      <p class="desc">두 그룹의 고민 차이 — 비구매자가 탄력저하 고민 더 높음 → 접근 포인트</p>
-      <canvas id="concernDiffChart"></canvas>
+      <h2>💰 스킨케어 월 지출 × BOH 인지·구매율</h2>
+      <span class="src">📄 PDF p.7 / Topics1 / N=22,578 스크리닝</span>
+      <p class="desc">지출 높을수록 BOH 인지·구매율 급상승 — 프리미엄 포지셔닝 유효</p>
+      <canvas id="spendChart"></canvas>
     </div>
     <div class="card">
-      <h2>💰 스킨케어 월 지출별 BOH 인지·구매율 (N=22,578)</h2>
-      <p class="desc">고지출층일수록 BOH 인지·구매율 높음 — 프리미엄 포지셔닝 유효</p>
-      <canvas id="spendChart"></canvas>
+      <h2>🎯 피부 고민 공동 보유율 (동시 고민 분석)</h2>
+      <span class="src">📄 PDF p.20 / Q3 アイテム×アイテム 크로스 집계</span>
+      <p class="desc">탄력저하 보유자는 건조·주름·기미도 함께 보유 → BOH 복수 카테고리 소구 기회</p>
+      <canvas id="cooccurChart"></canvas>
     </div>
   </div>
 </div>
 
 <!-- ======== TAB 5: 구매 행동 ======== -->
 <div id="tab-behavior" class="tab-content">
-  <div class="grid grid-2">
+  <div class="grid g2">
     <div class="card">
       <h2>🪥 스킨케어 루틴 단계 (Q12)</h2>
-      <p class="desc">전체 N=505 / 3단계 이상 비율 (Top2Box) — 연령·그룹별</p>
+      <span class="src">📄 PDF p.18 / Q12 / 본조사 N=505</span>
+      <p class="desc">3단계 이상 비율 Top2Box / 50대 66.3%로 최고</p>
       <canvas id="routineChart"></canvas>
     </div>
     <div class="card">
-      <h2>🧴 사용 스킨케어 아이템 (Q13 전체 N=505)</h2>
-      <p class="desc">현재 사용 중인 스킨케어 아이템 복수선택</p>
+      <h2>🧴 라인 사용 희망 아이템 연령별 (Q3)</h2>
+      <span class="src red">⚠️ 출처: PDF p.20 / Q3 ライン使い希望 / 본조사 N=505<br>※ Q3 = "처음 구매 시 같은 브랜드로 세트 사용하고 싶은 아이템"</span>
+      <p class="desc">화장수/토너 1위(69.7%), 에센스 2위(58.4%) — 25-29세는 일焼け止め(선케어) 비율 높음</p>
       <canvas id="itemChart"></canvas>
     </div>
   </div>
 
-  <div class="grid" style="padding-bottom:24px">
-    <div class="card card-full">
-      <h2>🧺 동시 구매 분석 — Basket Analysis (Q13)</h2>
-      <p class="desc">함께 구매하는 아이템 조합 / Lift > 1.5 = 동반 구매 강함 / UV 관련 묶음 구매 성향이 압도적</p>
+  <div class="grid g2">
+    <div class="card">
+      <h2>🧴 실제 사용 중인 스킨케어 아이템 (Q13)</h2>
+      <span class="src">📄 PDF p.18 / Q13 / 본조사 N=505</span>
+      <p class="desc">현재 실제 사용 아이템 — 라인 사용 희망(Q3)보다 낮음 → 추가 카테고리 잠재 수요 존재</p>
+      <canvas id="itemActualChart"></canvas>
+    </div>
+    <div class="card">
+      <h2>📊 Q3 라인 사용 희망 vs Q13 실제 사용 비교</h2>
+      <span class="src">📄 PDF p.18-20 / Q3·Q13 / 본조사 N=505</span>
+      <p class="desc">희망보다 실제 사용이 낮은 아이템 = 크로스셀 기회</p>
+      <canvas id="itemGapChart"></canvas>
+    </div>
+  </div>
+
+  <div class="grid" style="padding-bottom:22px">
+    <div class="card gfull">
+      <h2>🧺 동시 라인 사용 희망 조합 분석 — Basket Analysis (Q3, N=505)</h2>
+      <span class="src">📄 PDF p.20-21 / Q3 ライン使い希望 アイテム×アイテム 크로스집계 / Excel No.47 Q3 / 본조사 N=505</span>
+      <p class="desc">
+        함께 사용하고 싶은 아이템 조합 / <span style="color:#e94560;font-weight:700">Lift≥2.4 = 선케어(日焼け止め) 복수 아이템 동반 희망</span>
+        <span style="color:#4299e1;font-weight:700"> / 화장수(토너)가 핵심 앵커 아이템</span><br>
+        ⚠️ 이 분석은 Q13 실제 구매가 아닌 <strong>Q3 라인 사용 희망</strong> 기반 Association Rule임
+      </p>
       <div style="overflow-x:auto">
-        <table class="basket-table" id="basketTable">
-          <thead><tr><th>#</th><th>구매 묶음 조합</th><th>지지도 (Support)</th><th>Lift</th><th>해석</th></tr></thead>
+        <table class="btable">
+          <thead><tr><th>#</th><th>라인 사용 희망 조합</th><th>지지도 (Support)</th><th>Lift</th><th>강도</th><th>인사이트</th></tr></thead>
           <tbody id="basketBody"></tbody>
         </table>
       </div>
@@ -354,60 +422,59 @@
   </div>
 </div>
 
-<!-- ======== TAB 6: 실제 시장 데이터 ======== -->
+<!-- ======== TAB 6: 실제 시장 ======== -->
 <div id="tab-market" class="tab-content">
   <div class="kpi-row">
-    <div class="kpi gray"><div class="label">스크리닝 전체 조사 인원</div><div class="value">22,578명</div><div class="sub">일본 여성 대표 샘플</div></div>
+    <div class="kpi gray"><div class="label">스크리닝 전체 인원</div><div class="value">22,578명</div><div class="sub">일본 여성 대표 샘플</div></div>
     <div class="kpi"><div class="label">BOH 비인지율</div><div class="value" style="color:#e94560">94.6%</div><div class="sub">일본 전체 기준</div></div>
     <div class="kpi blue"><div class="label">BOH 인지율</div><div class="value">5.4%</div><div class="sub">1,229명 인지</div></div>
-    <div class="kpi green"><div class="label">BOH 구매 경험율</div><div class="value">2.0%</div><div class="sub">460명 구매 경험</div></div>
-    <div class="kpi orange"><div class="label">25-29세 BOH 인지율</div><div class="value">11.8%</div><div class="sub">전 연령 최고</div></div>
-    <div class="kpi purple"><div class="label">60-65세 BOH 인지율</div><div class="value">1.4%</div><div class="sub">급감 구간</div></div>
+    <div class="kpi green"><div class="label">BOH 구매 경험율</div><div class="value">2.0%</div><div class="sub">460명 구매</div></div>
+    <div class="kpi orange"><div class="label">25-29세 BOH 인지율</div><div class="value">11.8%</div><div class="sub">전 연령 최고 (117명/2269명)</div></div>
+    <div class="kpi purple"><div class="label">60-65세 BOH 인지율</div><div class="value">1.4%</div><div class="sub">급감 구간 (47명/3277명)</div></div>
   </div>
 
-  <div class="grid grid-2">
+  <div class="grid g2">
     <div class="card">
       <h2>📉 연령대별 실제 BOH 인지·구매율 (N=22,578)</h2>
-      <p class="desc">젊을수록 높고, 연령 높을수록 급감 — 40대 이상 공략 필요</p>
-      <canvas id="realAwarenessChart"></canvas>
+      <p class="desc">실제 일본 시장 수치 — 젊을수록 높고 40대↑ 급감</p>
+      <canvas id="realAwaChart"></canvas>
     </div>
     <div class="card">
       <h2>📊 본조사 수치 vs 실제 시장 비교</h2>
-      <p class="desc">샘플 설계 차이로 인한 수치 왜곡 시각화</p>
+      <p class="desc">샘플 설계 차이로 인한 수치 왜곡 — 실제는 본조사의 1/10 수준</p>
       <canvas id="compareChart"></canvas>
     </div>
   </div>
 
-  <div class="grid grid-2" style="padding-bottom:24px">
+  <div class="grid g2" style="padding-bottom:22px">
     <div class="card">
       <h2>🌐 실제 시장 브랜드 인지율 (N=22,578)</h2>
-      <p class="desc">일본 대표 샘플 기준 — ELIXIR·Curel 등 국내 브랜드가 압도</p>
-      <canvas id="realBrandAwareness"></canvas>
+      <p class="desc">일본 대표 샘플 기준 — Curel·ELIXIR·Obagi 등 국내 브랜드 압도</p>
+      <canvas id="realBrandChart"></canvas>
     </div>
     <div class="card">
       <h2>💡 샘플 설계 해설</h2>
-      <p class="desc">왜 BOH 수치가 높게 보이는가</p>
+      <p class="desc">이 조사의 수치를 올바르게 읽는 법</p>
       <div style="margin-top:10px;display:flex;flex-direction:column;gap:10px">
         <div style="background:#f7fafc;border-radius:8px;padding:14px;border-left:3px solid #4299e1">
           <div style="font-size:11px;font-weight:700;color:#2b6cb0;margin-bottom:6px">📌 조사 목적</div>
-          <div style="font-size:11px;color:#4a5568;line-height:1.8">이 조사는 <strong>BOH 브랜드 전략 수립</strong>을 위한 심층 목적 조사.<br>
-          일반 소비자 대표 샘플이 아닌, BOH 인지자만을 스크리닝하여 2그룹 비교 분석.</div>
+          <div style="font-size:11px;color:#4a5568;line-height:1.8">BOH 브랜드 전략 수립을 위한 심층 목적 조사.<br>BOH 인지자만 스크리닝하여 구매자/비구매자 2그룹 심층 비교.</div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
           <div style="background:#fff5f5;border-radius:8px;padding:12px;border-left:3px solid #e94560">
             <div style="font-size:10px;font-weight:700;color:#c53030">❌ 잘못된 해석</div>
-            <div style="font-size:10px;color:#718096;margin-top:4px">"BOH 과거 구매율 48%로 일본 시장 주도"</div>
+            <div style="font-size:10px;color:#718096;margin-top:4px">"BOH 과거 구매율 48%로 일본 스킨케어 시장 주도"</div>
           </div>
           <div style="background:#f0fff4;border-radius:8px;padding:12px;border-left:3px solid #48bb78">
             <div style="font-size:10px;font-weight:700;color:#276749">✅ 올바른 해석</div>
-            <div style="font-size:10px;color:#718096;margin-top:4px">"BOH 인지자 중 48%가 구매 경험 있음 (실제 시장 ~2%)"</div>
+            <div style="font-size:10px;color:#718096;margin-top:4px">"BOH 인지자 중 48%가 구매 경험 보유 (실제 시장 침투율 ~2%)"</div>
           </div>
         </div>
         <div style="background:#f7fafc;border-radius:8px;padding:14px">
           <div style="font-size:11px;font-weight:700;color:#2d3748;margin-bottom:8px">샘플 구성 (N=505)</div>
           <div style="display:flex;height:24px;border-radius:5px;overflow:hidden">
-            <div style="width:48.1%;background:#e94560;display:flex;align-items:center;justify-content:center;font-size:10px;color:white;font-weight:700">BOH 구매자 243명</div>
-            <div style="width:51.9%;background:#4299e1;display:flex;align-items:center;justify-content:center;font-size:10px;color:white;font-weight:700">인지 미구매자 262명</div>
+            <div style="width:48.1%;background:#e94560;display:flex;align-items:center;justify-content:center;font-size:10px;color:white;font-weight:700">BOH 구매자 243명 (48.1%)</div>
+            <div style="width:51.9%;background:#4299e1;display:flex;align-items:center;justify-content:center;font-size:10px;color:white;font-weight:700">인지 미구매자 262명 (51.9%)</div>
           </div>
         </div>
       </div>
@@ -415,33 +482,160 @@
   </div>
 </div>
 
+<!-- ======== TAB 7: 전략 제안 ======== -->
+<div id="tab-strategy" class="tab-content">
+  <div class="grid">
+    <div class="card gfull">
+      <h2>🎯 inglewood 제안 4가지 전략 (CJ OLIVE YOUNG 제출 자료)</h2>
+      <p class="desc">조사 데이터 기반 BOH 일본 시장 확대 전략 — 2026.05.13 보고</p>
+      <div class="step-grid">
+        <div class="step-card" style="background:#fff5f5;border-color:#fed7d7">
+          <div class="step-num" style="color:#e94560">PROPOSAL 01</div>
+          <div class="step-title">🛒 EC 채널 강화로 구매 접근성 해소</div>
+          <div class="step-body">
+            <strong>배경:</strong> 비구매 이유 1위 "어디서 살 수 있는지 모름" 42.7%<br>
+            Amazon/Yahoo!가 구매처의 50~60% 차지<br><br>
+            <strong>제안:</strong><br>
+            • Amazon/Qoo10 등 EC 채널 리스팅 강화<br>
+            • 1,000엔 이하 트라이얼 세트로 구매 허들 낮추기<br>
+            • EC 경유 구매 의향층 18.9% 즉각 공략<br>
+            • LP(랜딩 페이지) CPA 최적화
+          </div>
+          <div class="step-kpi">
+            <span class="step-kpi-item" style="background:#fff5f5;color:#e94560">비구매 이유 1위 42.7%</span>
+            <span class="step-kpi-item" style="background:#fff5f5;color:#e94560">EC 의향 18.9%</span>
+            <span class="step-kpi-item" style="background:#fff5f5;color:#e94560">Amazon/Yahoo 50~60%</span>
+          </div>
+        </div>
+        <div class="step-card" style="background:#ebf8ff;border-color:#bee3f8">
+          <div class="step-num" style="color:#2b6cb0">PROPOSAL 02</div>
+          <div class="step-title">👥 20-30대 BOH 구매자 → 40-50대 확장</div>
+          <div class="step-body">
+            <strong>배경:</strong> BOH 인지율 25-29세 11.8%, 40대 5.2%로 격차 큼<br>
+            40대 BOH 구매자 중 56.3%가 현재도 구매 (충성도 높음)<br><br>
+            <strong>제안:</strong><br>
+            • 기존 20-30대 팬 활용한 SNS 바이럴<br>
+            • 40-50대 타깃 PDRN·에이징케어 소구 콘텐츠<br>
+            • D2C 구독 모델로 LTV 향상<br>
+            • POLA 등 일본 프리미엄 브랜드 이용 40-60대 공략
+          </div>
+          <div class="step-kpi">
+            <span class="step-kpi-item" style="background:#ebf8ff;color:#2b6cb0">40대 BOH 구매율 56.3%</span>
+            <span class="step-kpi-item" style="background:#ebf8ff;color:#2b6cb0">50대 56.8%</span>
+            <span class="step-kpi-item" style="background:#ebf8ff;color:#2b6cb0">D2C 강화</span>
+          </div>
+        </div>
+        <div class="step-card" style="background:#f0fff4;border-color:#c6f6d5">
+          <div class="step-num" style="color:#276749">PROPOSAL 03</div>
+          <div class="step-title">🔬 PDRN·CICA 성분 소구로 차별화</div>
+          <div class="step-body">
+            <strong>배경:</strong> BOH 구매 이유 3위 "성분이 좋아서" 16.8%<br>
+            BOH 사용자는 탄력저하·여드름·건조 고민이 전체 대비 현저히 높음<br><br>
+            <strong>제안:</strong><br>
+            • PDRN(피부 재생) 성분 키워드 SNS 콘텐츠화<br>
+            • CICA(진정) + PDRN(재생) 조합 소구<br>
+            • K-beauty 프리미엄 성분 브랜드 포지셔닝 강화<br>
+            • 에이징케어 카테고리 내 BOH 전문성 구축
+          </div>
+          <div class="step-kpi">
+            <span class="step-kpi-item" style="background:#f0fff4;color:#276749">성분 이유 16.8%</span>
+            <span class="step-kpi-item" style="background:#f0fff4;color:#276749">탄력고민 BOH +17%p</span>
+            <span class="step-kpi-item" style="background:#f0fff4;color:#276749">PDRN 8배↑ 트렌드</span>
+          </div>
+        </div>
+        <div class="step-card" style="background:#faf5ff;border-color:#e9d8fd">
+          <div class="step-num" style="color:#6b46c1">PROPOSAL 04</div>
+          <div class="step-title">♻️ 재구매·LTV 강화 CRM 구축</div>
+          <div class="step-body">
+            <strong>배경:</strong> 재구매 의향 66.3% → LTV 향상 여력 충분<br>
+            만족도 높은 구매자 집단이 존재하지만 이탈 방지 장치 부족<br><br>
+            <strong>제안:</strong><br>
+            • BOH 구매자 대상 CRM/리텐션 마케팅<br>
+            • TOP10 구매자 → Anua 등 K-beauty 복수 구매 유도<br>
+            • 정기구독(D2C) 모델로 이탈 방지<br>
+            • 고만족층(지출 2만엔↑) 별도 VIP 프로그램
+          </div>
+          <div class="step-kpi">
+            <span class="step-kpi-item" style="background:#faf5ff;color:#6b46c1">재구매 의향 66.3%</span>
+            <span class="step-kpi-item" style="background:#faf5ff;color:#6b46c1">고지출 만족 87.1%</span>
+            <span class="step-kpi-item" style="background:#faf5ff;color:#6b46c1">LTV 최대화</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid g2" style="padding-bottom:22px">
+    <div class="card">
+      <h2>💴 제품 가격 단계별 전략 (inglewood 제안)</h2>
+      <p class="desc">트라이얼 → 스탠다드 → 프리미엄 단계별 제품 구성 제안</p>
+      <div class="price-steps">
+        <div class="price-step" style="background:#fff5f5">
+          <div class="ps-num" style="background:#e94560">1</div>
+          <div class="ps-content"><div class="ps-price">¥1,980 — 트라이얼 세트</div><div class="ps-desc">진입 장벽 낮추기 / 1,000엔 이하 목표 / 신규 고객 유치</div></div>
+          <div class="ps-bar" style="background:#e94560;width:20%"></div>
+        </div>
+        <div class="price-step" style="background:#fff9f0">
+          <div class="ps-num" style="background:#ed8936">2</div>
+          <div class="ps-content"><div class="ps-price">¥3,980 — 세럼 세트</div><div class="ps-desc">핵심 카테고리 세럼(36.6%) 중심 구성 / 중간 단계</div></div>
+          <div class="ps-bar" style="background:#ed8936;width:40%"></div>
+        </div>
+        <div class="price-step" style="background:#f0fff4">
+          <div class="ps-num" style="background:#48bb78">3</div>
+          <div class="ps-content"><div class="ps-price">¥5,980 — 33종 풀 세트</div><div class="ps-desc">풀 루틴 경험 / Top2Box 만족도 43.5%→20.2% 전환 목표</div></div>
+          <div class="ps-bar" style="background:#48bb78;width:60%"></div>
+        </div>
+        <div class="price-step" style="background:#ebf8ff">
+          <div class="ps-num" style="background:#4299e1">4</div>
+          <div class="ps-content"><div class="ps-price">¥9,800 — PLGA 프리미엄</div><div class="ps-desc">고가 세럼 / 고지출층 LTV 최대화 / PDRN 프리미엄 포지셔닝</div></div>
+          <div class="ps-bar" style="background:#4299e1;width:100%"></div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>📈 타깃 우선순위 매트릭스</h2>
+      <p class="desc">단기·중기·장기 타깃 그룹 및 접근 전략</p>
+      <canvas id="targetChart"></canvas>
+    </div>
+  </div>
+</div>
+
 <footer>
   조사명: スキンケアに関する調査 ｜ 조사기관: inglewood Co., Ltd. ｜ 보고일: 2026.05.13<br>
-  데이터 출처: 【本調査】main_tab.xlsx + 【ご提出】オリーブヤング様_0513mtg資料.pdf
+  데이터 출처: 【本調査】main_tab.xlsx + 【ご提出】オリーブヤング様_0513mtg資料.pdf ｜ ※ 수치는 원본 데이터 기반, 일부 텍스트 추출 한계로 근사치 포함
 </footer>
 
 <script>
 Chart.defaults.font.family = "'Malgun Gothic','Apple SD Gothic Neo',sans-serif";
 Chart.defaults.font.size = 11;
 
-function switchTab(tab, btn) {
+// 탭 전환
+function sw(tab, btn) {
   document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
   document.getElementById('tab-' + tab).classList.add('active');
   btn.classList.add('active');
 }
 
-const brandShort = ['BOH','VT','medicube','넘버즈인','Anua','메디힐','토리든','ELIXIR','Obagi','Curel','MINON'];
-const COLORS = ['#e94560','#4299e1','#48bb78','#ed8936','#9f7aea','#38b2ac','#f687b3','#667eea','#fc8181','#68d391','#f6e05e'];
+// 다운로드
+document.getElementById('dlBtn').addEventListener('click', function(e) {
+  const html = document.documentElement.outerHTML;
+  const blob = new Blob([html], {type: 'text/html;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'skincare_dashboard.html'; a.click();
+  URL.revokeObjectURL(url);
+});
 
-// ── TAB1 차트 ────────────────────────────────────────────
+const C = ['#e94560','#4299e1','#48bb78','#ed8936','#9f7aea','#38b2ac','#f687b3','#667eea','#fc8181','#68d391','#f6e05e'];
+const bShort = ['BOH','VT','medicube','넘버즈인','Anua','메디힐','토리든','ELIXIR','Obagi','Curel','MINON'];
+
+// ── TAB1 ─────────────────────────────────────────────────
 new Chart(document.getElementById('awarenessChart'), {
   type:'bar',
-  data:{
-    labels:brandShort,
-    datasets:[{label:'인지율',data:[100,66.5,76.2,71.3,74.3,74.3,73.5,83.2,84.4,85.1,83.0],
-      backgroundColor:brandShort.map(b=>b==='BOH'?'#e94560':'#bee3f8'),borderRadius:4,borderSkipped:false}]
-  },
+  data:{ labels:bShort, datasets:[{label:'인지율',
+    data:[100,66.5,76.2,71.3,74.3,74.3,73.5,83.2,84.4,85.1,83.0],
+    backgroundColor:bShort.map(b=>b==='BOH'?'#e94560':'#bee3f8'),borderRadius:4,borderSkipped:false}]},
   options:{indexAxis:'y',responsive:true,
     plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.raw}%`}}},
     scales:{x:{min:0,max:115,ticks:{callback:v=>v+'%'},grid:{color:'#f0f4f8'}},y:{grid:{display:false}}}}
@@ -449,45 +643,40 @@ new Chart(document.getElementById('awarenessChart'), {
 
 new Chart(document.getElementById('purchaseChart'), {
   type:'bar',
-  data:{
-    labels:brandShort,
-    datasets:[
-      {label:'과거 구매',data:[48.1,31.7,30.5,32.5,33.9,31.7,31.5,41.0,31.3,43.2,29.5],backgroundColor:'#f6ad55',borderRadius:3},
-      {label:'1년 이내',data:[29.7,17.2,17.8,17.0,23.0,15.0,17.6,27.1,12.7,25.0,15.6],backgroundColor:'#68d391',borderRadius:3},
-      {label:'주 사용',data:[15.4,4.8,3.2,3.0,7.5,2.8,3.0,14.5,5.5,10.9,3.4],backgroundColor:'#4299e1',borderRadius:3},
-    ]
-  },
+  data:{ labels:bShort, datasets:[
+    {label:'과거 구매',data:[48.1,31.7,30.5,32.5,33.9,31.7,31.5,41.0,31.3,43.2,29.5],backgroundColor:'#f6ad55',borderRadius:3},
+    {label:'1년 이내',data:[29.7,17.2,17.8,17.0,23.0,15.0,17.6,27.1,12.7,25.0,15.6],backgroundColor:'#68d391',borderRadius:3},
+    {label:'주 사용',data:[15.4,4.8,3.2,3.0,7.5,2.8,3.0,14.5,5.5,10.9,3.4],backgroundColor:'#4299e1',borderRadius:3},
+  ]},
   options:{responsive:true,
-    plugins:{legend:{position:'bottom',labels:{boxWidth:9,padding:10}},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.raw}%`}}},
+    plugins:{legend:{position:'bottom',labels:{boxWidth:9,padding:8}},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.raw}%`}}},
     scales:{x:{grid:{display:false}},y:{max:60,ticks:{callback:v=>v+'%'},grid:{color:'#f0f4f8'}}}}
 });
 
 new Chart(document.getElementById('pieChart'), {
   type:'doughnut',
-  data:{
-    labels:[...brandShort,'해당없음'],
-    datasets:[{data:[15.4,4.8,3.2,3.0,7.5,2.8,3.0,14.5,5.5,10.9,3.4,26.1],backgroundColor:[...COLORS,'#e2e8f0'],borderWidth:2,borderColor:'white'}]
-  },
+  data:{labels:[...bShort,'해당없음'],
+    datasets:[{data:[15.4,4.8,3.2,3.0,7.5,2.8,3.0,14.5,5.5,10.9,3.4,26.1],
+      backgroundColor:[...C,'#e2e8f0'],borderWidth:2,borderColor:'white'}]},
   options:{responsive:true,cutout:'52%',
-    plugins:{legend:{position:'right',labels:{boxWidth:9,padding:6,font:{size:10}}},tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}%`}}}}
+    plugins:{legend:{position:'right',labels:{boxWidth:9,padding:5,font:{size:10}}},
+      tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}%`}}}}
 });
 
 new Chart(document.getElementById('nonBuyerChart'), {
   type:'bar',
-  data:{
-    labels:['해당없음','ELIXIR','Curel','Anua','Obagi','VT','메디힐'],
+  data:{labels:['해당없음','ELIXIR','Curel','Anua','Obagi','VT','메디힐'],
     datasets:[{label:'주 사용',data:[40.2,15.5,14.2,7.3,6.1,4.6,3.8],
-      backgroundColor:['#e2e8f0','#63b3ed','#4299e1','#68d391','#f6ad55','#9f7aea','#fc8181'],borderRadius:4}]
-  },
+      backgroundColor:['#e2e8f0','#63b3ed','#4299e1','#68d391','#f6ad55','#9f7aea','#fc8181'],borderRadius:4}]},
   options:{indexAxis:'y',responsive:true,
     plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.raw}%`}}},
     scales:{x:{ticks:{callback:v=>v+'%'},grid:{color:'#f0f4f8'}},y:{grid:{display:false}}}}
 });
 
 // ── TAB2: 퍼널 ───────────────────────────────────────────
-const funnelColors=['#cbd5e0','#fc8181','#f6ad55','#68d391','#4299e1'];
-const funnelData=[
-  ['BIOHEAL BOH ⚠️설계상비인지=0%',[0,51.9,18.4,14.3,15.4]],
+const FC=['#cbd5e0','#fc8181','#f6ad55','#68d391','#4299e1'];
+const FD=[
+  ['BIOHEAL BOH ⚠️(설계상 비인지=0%)',[0,51.9,18.4,14.3,15.4]],
   ['Anua',[25.7,40.4,10.9,15.4,7.5]],
   ['VT COSMETICS',[33.5,34.9,14.5,12.5,4.8]],
   ['medicube',[23.8,45.7,12.7,14.7,3.2]],
@@ -496,269 +685,317 @@ const funnelData=[
   ['Torriden',[26.5,41.4,14.5,14.2,3.4]],
 ];
 const fw=document.getElementById('funnelWrap');
-funnelData.forEach(([brand,segs])=>{
-  const labels=['비인지','인지미구매','과거구매','1년이내구매','주구매'];
-  const d=document.createElement('div');d.className='funnel-brand';
-  const n=document.createElement('div');n.className='funnel-brand-name';
-  n.innerHTML=`<span>${brand}</span><span style="color:#a0aec0;font-weight:400;font-size:10px">인지율 ${100-segs[0]}% ｜ 주구매 ${segs[4]}%</span>`;
-  const b=document.createElement('div');b.className='funnel-bar-row';
-  segs.forEach((v,i)=>{
-    const s=document.createElement('div');s.className='funnel-seg';
-    s.style.cssText=`background:${funnelColors[i]};width:${v}%`;
-    s.title=`${labels[i]}: ${v}%`;if(v>=8)s.textContent=v+'%';b.appendChild(s);
-  });
-  d.appendChild(n);d.appendChild(b);fw.appendChild(d);
+FD.forEach(([b,s])=>{
+  const L=['비인지','인지미구매','과거구매','1년이내','주구매'];
+  const d=document.createElement('div');
+  const n=document.createElement('div');n.className='fb-name';
+  n.innerHTML=`<span>${b}</span><span style="color:#a0aec0;font-weight:400;font-size:10px">인지 ${100-s[0]}% | 주구매 ${s[4]}%</span>`;
+  const r=document.createElement('div');r.className='fb-row';
+  s.forEach((v,i)=>{const g=document.createElement('div');g.className='fb-seg';
+    g.style.cssText=`background:${FC[i]};width:${v}%`;g.title=`${L[i]}: ${v}%`;
+    if(v>=8)g.textContent=v+'%';r.appendChild(g);});
+  d.appendChild(n);d.appendChild(r);fw.appendChild(d);
 });
 
 new Chart(document.getElementById('bohBuyerChart'), {
   type:'bar',
-  data:{
-    labels:['25-29세','30-39세','40-49세','50-59세','60-65세'],
+  data:{labels:['25-29세','30-39세','40-49세','50-59세','60-65세'],
     datasets:[
       {label:'1년 이내 구매율',data:[59.6,63.5,64.7,56.9,64.9],backgroundColor:'#68d391',borderRadius:4},
       {label:'현재 주 사용율',data:[36.5,32.7,31.4,25.5,35.1],backgroundColor:'#e94560',borderRadius:4},
-    ]
-  },
+    ]},
   options:{responsive:true,
     plugins:{legend:{position:'bottom',labels:{boxWidth:9}},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.raw}%`}}},
     scales:{x:{grid:{display:false}},y:{max:80,ticks:{callback:v=>v+'%'},grid:{color:'#f0f4f8'}}}}
 });
 
-// 히트맵
-const heatBrands=['BOH','VT','medicube','Anua','ELIXIR','Curel'];
-const heatB=[[59.6,25.0,28.8,30.8,23.1,25.0],[63.5,30.8,36.5,46.2,28.8,21.2],[64.7,21.6,27.5,33.3,43.1,23.5],[56.9,21.6,15.7,29.4,31.4,21.6],[64.9,16.2,16.2,18.9,27.0,35.1]];
-const heatN=[[0,11.5,15.4,15.4,9.6,28.8],[0,15.4,15.4,25.0,15.4,28.8],[0,11.3,9.4,11.3,34.0,26.4],[0,17.0,9.4,9.4,32.1,15.1],[0,1.9,3.8,9.6,26.9,26.9]];
-function hc(v){if(v===0)return'#f0f4f8';if(v<10)return'#ebf8ff';if(v<20)return'#bee3f8';if(v<30)return'#63b3ed';if(v<45)return'#3182ce';return'#1a56a8';}
-function tc(v){return v>=30?'white':'#2d3748';}
-const ht=document.getElementById('heatmapTable');
-const ages=['25-29세','30-39세','40-49세','50-59세','60-65세'];
-const hth=ht.createTHead();const hr=hth.insertRow();
-['연령대',...heatBrands.map(b=>'★'+b),...heatBrands.map(b=>'☆'+b)].forEach((h,i)=>{
-  const th=document.createElement('th');
-  if(i===0){th.textContent=h;}
-  else if(i<=heatBrands.length){th.textContent=h.replace('★','');th.style.cssText='background:#fff5f5;color:#c53030;';}
-  else{th.textContent=h.replace('☆','');th.style.cssText='background:#ebf8ff;color:#2b6cb0;';}
-  hr.appendChild(th);
-});
-const htb=ht.createTBody();
-ages.forEach((a,ai)=>{
-  const r=htb.insertRow();r.insertCell().textContent=a;
-  heatB[ai].forEach(v=>{const td=r.insertCell();td.textContent=v+'%';td.style.cssText=`background:${hc(v)};color:${tc(v)}`;});
-  heatN[ai].forEach(v=>{const td=r.insertCell();td.textContent=v===0?'-':v+'%';td.style.cssText=`background:${v===0?'#f0f4f8':hc(v)};color:${v===0?'#a0aec0':tc(v)}`;});
-});
-
-// ── TAB3: 만족도·구매이유·장벽 ──────────────────────────
-const satItems=[
-  {label:'구매 경험 만족도',val:72.8,color:'#48bb78'},
-  {label:'재구매 의향',val:65.0,color:'#4299e1'},
-  {label:'품질 만족도',val:70.4,color:'#9f7aea'},
-  {label:'가격 대비 가치',val:64.6,color:'#ed8936'},
-];
-const gc=document.getElementById('satisfactionGauge');
-satItems.forEach(s=>{
-  gc.innerHTML+=`<div class="gauge-item">
-    <div class="gauge-label">${s.label}</div>
-    <div class="gauge-bar"><div class="gauge-fill" style="width:${s.val}%;background:${s.color}"><span>${s.val}%</span></div></div>
-    <div class="gauge-val" style="color:${s.color}">${s.val}%</div>
-  </div>`;
-});
-
-const buyReasons=[
-  {text:'한국 브랜드여서 / K-beauty 관심',pct:33.3},
-  {text:'SNS·입소문으로 좋다는 말을 들음',pct:18.9},
-  {text:'효능·효과가 좋을 것 같아서',pct:16.3},
-  {text:'성분이 좋아서 (PDRN·CICA 등)',pct:10.8},
-  {text:'가격이 적절해서',pct:10.3},
-  {text:'디자인·패키지가 좋아서',pct:9.8},
-];
-const brc=document.getElementById('buyReasonList');
-const rc2=['#9f7aea','#4299e1','#48bb78','#ed8936','#38b2ac','#667eea'];
-buyReasons.forEach((b,i)=>{
-  brc.innerHTML+=`<div>
-    <div class="barrier-row">
-      <div class="barrier-rank" style="background:${rc2[i]}">${i+1}</div>
-      <div class="barrier-text">${b.text}</div>
-      <div class="barrier-pct" style="color:${rc2[i]}">${b.pct}%</div>
-    </div>
-    <div style="display:flex;align-items:center;gap:5px;margin-left:27px;margin-top:3px">
-      <div class="barrier-bar-bg"><div class="barrier-bar-fill" style="width:${b.pct/40*100}%;background:${rc2[i]}"></div></div>
-    </div>
-  </div>`;
-});
-
-const barriers=[
-  {text:'어디서 살 수 있는지 모름 (구매처 불명)',pct:42.7},
-  {text:'사고 싶지만 기회가 없었음',pct:34.4},
-  {text:'가격이 비쌈 / 가성비 불확실',pct:30.2},
-  {text:'자신에게 맞는지 모름',pct:22.9},
-  {text:'지금 브랜드로 충분함',pct:21.8},
-  {text:'브랜드 정보가 부족함',pct:20.2},
-];
-const bc=document.getElementById('barrierList');
-const bclr=['#e94560','#fc8181','#f6ad55','#68d391','#4299e1','#9f7aea'];
-barriers.forEach((b,i)=>{
-  bc.innerHTML+=`<div>
-    <div class="barrier-row">
-      <div class="barrier-rank" style="background:${bclr[i]}">${i+1}</div>
-      <div class="barrier-text">${b.text}</div>
-      <div class="barrier-pct" style="color:${bclr[i]}">${b.pct}%</div>
-    </div>
-    <div style="display:flex;align-items:center;gap:5px;margin-left:27px;margin-top:3px">
-      <div class="barrier-bar-bg"><div class="barrier-bar-fill" style="width:${b.pct/50*100}%;background:${bclr[i]}"></div></div>
-    </div>
-  </div>`;
-});
-
-new Chart(document.getElementById('categoryChart'), {
+// Q8: BOH 구매자가 병용하는 타 브랜드
+new Chart(document.getElementById('churnChart'), {
   type:'bar',
-  data:{
-    labels:['세럼/미용액','보습크림/젤','선케어/UV','토너/화장수','클렌징','미스트','유액/로션','아이크림','마스크팩','기초세트','기타'],
-    datasets:[{label:'구매 비율',
-      data:[36.6,18.9,14.8,13.2,12.8,12.3,11.1,11.1,9.1,7.8,2.1],
-      backgroundColor:['#e94560','#fc8181','#f6ad55','#68d391','#4299e1','#9f7aea','#38b2ac','#667eea','#f6e05e','#ed8936','#cbd5e0'],
-      borderRadius:4,borderSkipped:false}]
-  },
+  data:{labels:['BOH만 사용','기타K-beauty','일본브랜드','Anua','VT','ELIXIR','numbuzin','medicube','Torriden'],
+    datasets:[{label:'비율',
+      data:[37.5,20.4,18.4,9.9,9.5,8.6,7.4,6.2,4.1],
+      backgroundColor:['#4299e1','#9f7aea','#63b3ed','#68d391','#38b2ac','#667eea','#f6ad55','#ed8936','#fc8181'],
+      borderRadius:4,borderSkipped:false}]},
   options:{indexAxis:'y',responsive:true,
     plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.raw}%`}}},
     scales:{x:{min:0,max:45,ticks:{callback:v=>v+'%'},grid:{color:'#f0f4f8'}},y:{grid:{display:false}}}}
 });
 
-new Chart(document.getElementById('intentChart'), {
+// ── TAB3: 만족도 ─────────────────────────────────────────
+// ★ 수정: Q7S2는 "품질 만족도"가 아닌 "탄력·효과 실감" (INDEX No.52 확인)
+const satItems=[
+  {l:'사용감 만족 (Q7S1)',v:72.8,c:'#48bb78'},
+  {l:'계속 사용 의향 (Q7S4)',v:65.0,c:'#4299e1'},
+  {l:'탄력·효과 실감 (Q7S2)',v:70.4,c:'#9f7aea'},  // ← 기존 "품질 만족도" → 수정
+  {l:'가격 대비 가치 (Q7S3)',v:64.6,c:'#ed8936'},
+];
+const sg=document.getElementById('satGauge');
+satItems.forEach(s=>{sg.innerHTML+=`<div class="gitem">
+  <div class="glabel">${s.l}</div>
+  <div class="gbar"><div class="gfill" style="width:${s.v}%;background:${s.c}"><span>${s.v}%</span></div></div>
+  <div class="gval" style="color:${s.c}">${s.v}%</div></div>`;});
+
+const buyR=[
+  {t:'한국 브랜드여서 / K-beauty 관심',p:33.3},
+  {t:'SNS·입소문으로 좋다고 들어서',p:18.9},
+  {t:'효능·효과가 좋을 것 같아서',p:11.4},
+  {t:'성분이 좋아서 (PDRN·CICA)',p:10.8},
+  {t:'가격이 적절해서',p:10.3},
+  {t:'디자인·패키지가 좋아서',p:9.8},
+];
+const brc=document.getElementById('buyReasonList');
+const RC=['#9f7aea','#4299e1','#48bb78','#ed8936','#38b2ac','#667eea'];
+buyR.forEach((b,i)=>{brc.innerHTML+=`<div><div class="rrow">
+  <div class="rrank" style="background:${RC[i]}">${i+1}</div>
+  <div class="rtext">${b.t}</div>
+  <div class="rpct" style="color:${RC[i]}">${b.p}%</div></div>
+  <div style="display:flex;margin-left:27px;margin-top:3px">
+    <div class="rbar-bg"><div class="rbar-fill" style="width:${b.p/40*100}%;background:${RC[i]}"></div></div>
+  </div></div>`;});
+
+const barR=[
+  {t:'어디서 살 수 있는지 모름 (구매처 불명)',p:42.7},
+  {t:'사고 싶지만 기회가 없었음',p:34.4},
+  {t:'가격이 비쌈 / 가성비 불확실',p:30.2},
+  {t:'자신에게 맞는지 모름',p:22.9},
+  {t:'지금 브랜드로 충분함',p:21.8},
+  {t:'브랜드 정보가 부족함',p:20.2},
+];
+const brl=document.getElementById('barrierList');
+const BC=['#e94560','#fc8181','#f6ad55','#68d391','#4299e1','#9f7aea'];
+barR.forEach((b,i)=>{brl.innerHTML+=`<div><div class="rrow">
+  <div class="rrank" style="background:${BC[i]}">${i+1}</div>
+  <div class="rtext">${b.t}</div>
+  <div class="rpct" style="color:${BC[i]}">${b.p}%</div></div>
+  <div style="display:flex;margin-left:27px;margin-top:3px">
+    <div class="rbar-bg"><div class="rbar-fill" style="width:${b.p/50*100}%;background:${BC[i]}"></div></div>
+  </div></div>`;});
+
+new Chart(document.getElementById('categoryChart'), {
+  type:'bar',
+  data:{labels:['세럼/미용액','보습크림/젤','선케어/UV','토너/화장수','클렌징','미스트','유액/로션','아이크림','마스크팩','기초세트','기타'],
+    datasets:[{label:'구매 비율',
+      data:[36.6,18.9,14.8,13.2,12.8,12.3,11.1,11.1,9.1,7.8,2.1],
+      backgroundColor:['#e94560','#fc8181','#f6ad55','#68d391','#4299e1','#9f7aea','#38b2ac','#667eea','#f6e05e','#ed8936','#cbd5e0'],
+      borderRadius:4,borderSkipped:false}]},
+  options:{indexAxis:'y',responsive:true,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.raw}%`}}},
+    scales:{x:{min:0,max:45,ticks:{callback:v=>v+'%'},grid:{color:'#f0f4f8'}},y:{grid:{display:false}}}}
+});
+
+// 만족도 × 연령/지출별
+new Chart(document.getElementById('satDetailChart'), {
   type:'bar',
   data:{
-    labels:['매우 그렇다','그렇다','보통','그렇지 않다','전혀 아니다'],
+    labels:['전체','25-29세','30대','40대','50대','60-65세','지출800↓','지출2만↑'],
+    datasets:[{label:'구매 경험 만족도 Top2Box',
+      data:[72.8,75.0,69.2,72.5,70.6,78.4,63.9,87.1],
+      backgroundColor:['#4299e1','#e94560','#e94560','#e94560','#e94560','#fc8181','#cbd5e0','#48bb78'],
+      borderRadius:5}]},
+  options:{responsive:true,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.raw}%`}}},
+    scales:{x:{grid:{display:false}},y:{min:50,max:95,ticks:{callback:v=>v+'%'},grid:{color:'#f0f4f8'}}}}
+});
+
+new Chart(document.getElementById('intentChart'), {
+  type:'bar',
+  data:{labels:['매우 그렇다','그렇다','보통','그렇지 않다','전혀 아니다'],
     datasets:[{label:'비율',data:[7.5,12.7,21.4,32.3,26.1],
-      backgroundColor:['#48bb78','#68d391','#e2e8f0','#fc8181','#e94560'],borderRadius:5}]
-  },
+      backgroundColor:['#48bb78','#68d391','#e2e8f0','#fc8181','#e94560'],borderRadius:5}]},
   options:{responsive:true,plugins:{legend:{display:false}},
     scales:{x:{grid:{display:false}},y:{ticks:{callback:v=>v+'%'},grid:{color:'#f0f4f8'}}}}
 });
 
+// ★ 수정: Q10 BOH 인지 경로 (비구매자 N=262 기준, 실제 데이터)
+new Chart(document.getElementById('channelChart'), {
+  type:'doughnut',
+  data:{labels:['SNS(Instagram 등)','친구/지인 추천','기타/여러 채널','TV·잡지 광고','Amazon·EC 검색','유튜브·리뷰','오프라인 매장','기억없음'],
+    datasets:[{data:[25.6,23.7,18.7,16.0,14.5,13.4,12.2,0.8],
+      backgroundColor:['#e94560','#4299e1','#cbd5e0','#ed8936','#48bb78','#9f7aea','#38b2ac','#f0f4f8'],
+      borderWidth:2,borderColor:'white'}]},
+  options:{responsive:true,cutout:'48%',
+    plugins:{legend:{position:'right',labels:{boxWidth:9,padding:5,font:{size:10}}},
+      tooltip:{callbacks:{label:c=>` ${c.label}: ${c.raw}%`}}}}
+});
+
 // ── TAB4: 피부 고민 ──────────────────────────────────────
-const concernLabels=['모공/피지','건조/수분부족','탄력저하','주름','여드름/뾰루지','색소침착/기미','민감성'];
+// ★ 전면 수정: SQ5 피부 고민 = Excel main_tab.xlsx %012에서 직접 확인한 실제 데이터
+// 전체 N=505: 기미 42.4%, 처짐 35.6%, 모공 33.1%, 주름 27.5%, 건조 21.6% 순
+// (기존에 Q3 라인사용 데이터를 피부 고민으로 잘못 사용한 것을 전면 교체)
+const CL=['기미/색소침착','처짐(たるみ)','모공/피지','주름(シワ)','눈밑(目元)','건조(乾燥)','여드름','칙칙함(くすみ)','탄력부족','피지/번들','민감성'];
+// BOH 과거구매자 N=243 집계 (25-29·30-39·40-49·50-59·60-65 연령별 가중 평균)
+const bohBuyerConcern = [38.3, 37.0, 31.3, 25.9, 19.8, 21.6, 13.2, 15.6, 21.5, 8.6, 7.0];
+// BOH 인지미구매자 N=262 집계
+const bohNonBuyerConcern = [45.4, 28.6, 34.4, 26.1, 19.0, 21.7, 18.3, 12.6, 21.0, 11.8, 11.1];
+// 전체 N=505
+const totalConcern = [42.4, 35.6, 33.1, 27.5, 19.0, 21.6, 16.0, 14.3, 21.2, 10.5, 9.3];
+
 new Chart(document.getElementById('concernChart'), {
   type:'bar',
-  data:{
-    labels:concernLabels,
-    datasets:[
-      {label:'전체 N=505',data:[69.7,58.4,51.1,46.1,34.1,27.5,23.0],backgroundColor:'#cbd5e0',borderRadius:3},
-      {label:'BOH 구매자 N=243',data:[66.7,63.4,48.1,46.5,30.0,25.1,20.6],backgroundColor:'#e94560',borderRadius:3},
-      {label:'BOH 비구매자 N=262',data:[72.5,53.8,53.8,45.8,37.8,29.8,25.2],backgroundColor:'#4299e1',borderRadius:3},
-    ]
-  },
+  data:{labels:CL, datasets:[
+    {label:'전체 N=505',data:totalConcern,backgroundColor:'#cbd5e0',borderRadius:3},
+    {label:'BOH 과거구매자 N=243',data:bohBuyerConcern,backgroundColor:'#e94560',borderRadius:3},
+    {label:'BOH 인지미구매자 N=262',data:bohNonBuyerConcern,backgroundColor:'#4299e1',borderRadius:3},
+  ]},
   options:{responsive:true,
-    plugins:{legend:{position:'bottom',labels:{boxWidth:9,padding:8}},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.raw}%`}}},
-    scales:{x:{grid:{display:false}},y:{max:85,ticks:{callback:v=>v+'%'},grid:{color:'#f0f4f8'}}}}
+    plugins:{legend:{position:'bottom',labels:{boxWidth:9,padding:6}},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.raw}%`}}},
+    scales:{x:{grid:{display:false},ticks:{font:{size:9}}},y:{max:55,ticks:{callback:v=>v+'%'},grid:{color:'#f0f4f8'}}}}
+});
+
+// 피부 고민 격차: BOH 과거구매자 vs 인지미구매자 (본조사 N=243 vs N=262)
+new Chart(document.getElementById('concernDiffChart'), {
+  type:'bar',
+  data:{labels:CL,
+    datasets:[{label:'BOH 구매자 - 비구매자 격차 (%p)',
+      data:bohBuyerConcern.map((v,i)=>Math.round((v-bohNonBuyerConcern[i])*10)/10),
+      backgroundColor:d=>d.raw>=0?'#e94560':'#4299e1',borderRadius:4}]},
+  options:{responsive:true,
+    plugins:{legend:{display:false},
+      tooltip:{callbacks:{label:c=>{const v=c.raw;return v>0?` 구매자가 ${v}%p 더 높음`:` 비구매자가 ${Math.abs(v)}%p 더 높음`;}}}},
+    scales:{x:{grid:{display:false},ticks:{font:{size:9}}},y:{ticks:{callback:v=>v+'%p'},grid:{color:'#f0f4f8'}}}}
+});
+
+// 브랜드별 피부 고민 레이더 (N=22,578 스크리닝 기준, PDF p.9)
+// 연령 구성이 달라 직접 비교 주의
+new Chart(document.getElementById('brandConcernChart'), {
+  type:'radar',
+  data:{
+    labels:['모공/피지','건조/수분','탄력저하','주름','여드름','기미/색소'],
+    datasets:[
+      {label:'BOH (n=148, 스크리닝)',data:[28.0,32.7,40.9,19.0,34.6,25.8],borderColor:'#e94560',backgroundColor:'rgba(233,69,96,0.1)',pointBackgroundColor:'#e94560'},
+      {label:'ELIXIR (n=1378)',data:[49.0,37.4,25.3,34.6,20.7,15.2],borderColor:'#4299e1',backgroundColor:'rgba(66,153,225,0.1)',pointBackgroundColor:'#4299e1'},
+      {label:'Anua (n=451)',data:[32.7,20.7,39.0,14.1,21.8,19.8],borderColor:'#48bb78',backgroundColor:'rgba(72,187,120,0.1)',pointBackgroundColor:'#48bb78'},
+      {label:'Curel (n=1327)',data:[41.1,25.7,30.7,23.1,39.0,24.8],borderColor:'#ed8936',backgroundColor:'rgba(237,137,54,0.08)',pointBackgroundColor:'#ed8936'},
+    ]},
+  options:{responsive:true,
+    plugins:{legend:{position:'bottom',labels:{boxWidth:9,padding:8}}},
+    scales:{r:{min:0,max:55,ticks:{stepSize:10,font:{size:9}},grid:{color:'#e2e8f0'}}}}
 });
 
 new Chart(document.getElementById('interestChart'), {
   type:'bar',
-  data:{
-    labels:['전체','25-29세','30대','40대','50대','60-65세','BOH구매자','BOH비구매자'],
+  data:{labels:['전체','25-29세','30대','40대','50대','60-65세','BOH구매자','BOH비구매자'],
     datasets:[{label:'스킨케어 관심도 Top2Box',
       data:[70.9,74.0,72.1,73.1,74.0,59.6,72.4,69.5],
       backgroundColor:['#4299e1','#e94560','#e94560','#e94560','#e94560','#fc8181','#9f7aea','#cbd5e0'],
-      borderRadius:5}]
-  },
+      borderRadius:5}]},
   options:{responsive:true,
     plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.raw}%`}}},
     scales:{x:{grid:{display:false}},y:{min:50,max:80,ticks:{callback:v=>v+'%'},grid:{color:'#f0f4f8'}}}}
 });
 
-new Chart(document.getElementById('concernDiffChart'), {
-  type:'bar',
-  data:{
-    labels:concernLabels,
-    datasets:[{label:'비구매자 - 구매자 (격차)',
-      data:[5.8,-9.6,5.7,-0.7,7.8,4.7,4.6],
-      backgroundColor:d=>d.raw>=0?'#4299e1':'#68d391',
-      borderRadius:4}]
-  },
-  options:{responsive:true,
-    plugins:{legend:{display:false},
-      tooltip:{callbacks:{label:c=>{const v=c.raw;return v>=0?` 비구매자가 ${v.toFixed(1)}%p 더 높음`:` 구매자가 ${Math.abs(v).toFixed(1)}%p 더 높음`;}}}},
-    scales:{x:{grid:{display:false}},y:{ticks:{callback:v=>v+'%p'},grid:{color:'#f0f4f8'}}}}
-});
-
+// ★ 수정: 소득별 BOH 인지율 (PDF 실제 데이터)
 new Chart(document.getElementById('spendChart'), {
   type:'bar',
-  data:{
-    labels:['~500엔','500~1K','1K~2K','2K~3K','3K~5K','5K~1만','1만~2만','2만~3만','3만~'],
+  data:{labels:['200엔↓','200~500','500~1K','1K~3K','3K~5K','5K~1만','1만~2만','2만~3만','3만엔~'],
     datasets:[
-      {label:'BOH 인지율',data:[0.8,2.1,3.5,4.7,6.6,10.9,14.1,18.3,19.0],backgroundColor:'#e94560',borderRadius:3},
-      {label:'BOH 구매율',data:[0.3,0.4,1.4,2.3,0,3.9,10.4,11.9,20.4],backgroundColor:'#fc8181',borderRadius:3},
-    ]
-  },
+      {label:'BOH 인지율',data:[0.3,0.4,2.1,3.5,4.7,6.6,11.0,18.3,19.0],backgroundColor:'#e94560',borderRadius:3},
+      {label:'BOH 구매율',data:[0.1,0.3,0.8,1.4,2.3,3.9,5.9,10.4,11.9],backgroundColor:'#fc8181',borderRadius:3},
+    ]},
   options:{responsive:true,
     plugins:{legend:{position:'bottom',labels:{boxWidth:9}},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.raw}%`}}},
     scales:{x:{grid:{display:false},ticks:{font:{size:9}}},y:{ticks:{callback:v=>v+'%'},grid:{color:'#f0f4f8'}}}}
 });
 
+// ★ 신규: 탄력저하 보유자의 동시 고민 (공동 보유율)
+new Chart(document.getElementById('cooccurChart'), {
+  type:'bar',
+  data:{labels:['모공/피지','건조/수분','주름','여드름','기미/색소','민감성'],
+    datasets:[
+      {label:'탄력저하 보유자(n=258)의 동시 고민',data:[92.2,74.8,63.6,48.4,41.9,32.6],backgroundColor:'#9f7aea',borderRadius:4},
+      {label:'주름 보유자(n=233)의 동시 고민',data:[95.3,84.1,null,51.5,43.3,39.9],backgroundColor:'#4299e1',borderRadius:4},
+    ]},
+  options:{responsive:true,
+    plugins:{legend:{position:'bottom',labels:{boxWidth:9}},tooltip:{callbacks:{label:c=>c.raw!==null?` ${c.dataset.label}: ${c.raw}%`:''}}},
+    scales:{x:{grid:{display:false}},y:{max:100,ticks:{callback:v=>v+'%'},grid:{color:'#f0f4f8'}}}}
+});
+
 // ── TAB5: 구매 행동 ──────────────────────────────────────
 new Chart(document.getElementById('routineChart'), {
   type:'bar',
-  data:{
-    labels:['전체','25-29세','30대','40대','50대','60-65세','BOH구매자','BOH비구매자'],
-    datasets:[{label:'3단계 이상 비율 (Top2Box)',
-      data:[58.4,58.7,54.8,58.7,66.3,52.8,56.3,60.3],
-      backgroundColor:['#4299e1','#e94560','#e94560','#e94560','#e94560','#fc8181','#9f7aea','#cbd5e0'],
-      borderRadius:5}]
-  },
+  data:{labels:['전체','25-29세','30대','40대','50대','60-65세'],
+    datasets:[{label:'3단계 이상 비율 Top2Box',
+      data:[58.4,58.7,54.8,58.7,66.3,52.8],
+      backgroundColor:['#4299e1','#e94560','#e94560','#e94560','#e94560','#fc8181'],
+      borderRadius:5}]},
   options:{responsive:true,
     plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.raw}%`}}},
     scales:{x:{grid:{display:false}},y:{min:40,max:75,ticks:{callback:v=>v+'%'},grid:{color:'#f0f4f8'}}}}
 });
 
+// ★ 수정: Q3 라인 사용 희망 아이템 (化粧水=토너/화장수 1위로 수정)
 new Chart(document.getElementById('itemChart'), {
   type:'bar',
-  data:{
-    labels:['세안료','보습크림','선케어/UV','에센스/세럼','유액/로션','기타'],
+  data:{labels:['화장수/토너','에센스/미용액','유액/로션','크림','클렌징','선케어/UV','시트마스크'],
     datasets:[
-      {label:'전체 N=505',data:[49.1,46.5,36.8,31.9,19.6,0.6],backgroundColor:'#4299e1',borderRadius:4},
+      {label:'전체 N=505',data:[69.7,58.4,51.1,46.1,34.1,27.5,23.0],backgroundColor:'#4299e1',borderRadius:4},
+      {label:'25-29세 (N=104)',data:[73.1,70.2,57.7,42.3,51.9,42.3,36.5],backgroundColor:'#e94560',borderRadius:4},
+      {label:'50대 (N=104)',data:[70.2,52.9,49.0,53.8,28.8,21.2,17.3],backgroundColor:'#ed8936',borderRadius:4},
+      {label:'월지출 2만엔↑ (N=46)',data:[87.0,82.6,82.6,76.1,56.5,56.5,56.5],backgroundColor:'#48bb78',borderRadius:4},
+    ]},
+  options:{responsive:true,
+    plugins:{legend:{position:'bottom',labels:{boxWidth:9,padding:6}},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.raw}%`}}},
+    scales:{x:{grid:{display:false}},y:{max:100,ticks:{callback:v=>v+'%'},grid:{color:'#f0f4f8'}}}}
+});
+
+// ★ 신규: Q13 실제 사용 아이템
+new Chart(document.getElementById('itemActualChart'), {
+  type:'bar',
+  data:{labels:['화장수/토너','크림/보습','클렌징','에센스/세럼','유액/로션','기타'],
+    datasets:[
+      {label:'전체 N=505',data:[49.1,46.5,36.8,31.9,19.6,0.6],backgroundColor:'#9f7aea',borderRadius:4},
       {label:'25-29세',data:[45.2,32.7,28.8,39.4,25.0,0.0],backgroundColor:'#e94560',borderRadius:4},
       {label:'50대',data:[51.0,44.2,35.6,29.8,14.4,1.0],backgroundColor:'#ed8936',borderRadius:4},
-    ]
-  },
+    ]},
   options:{responsive:true,
-    plugins:{legend:{position:'bottom',labels:{boxWidth:9,padding:8}},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.raw}%`}}},
-    scales:{x:{grid:{display:false}},y:{ticks:{callback:v=>v+'%'},grid:{color:'#f0f4f8'}}}}
+    plugins:{legend:{position:'bottom',labels:{boxWidth:9,padding:6}},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.raw}%`}}},
+    scales:{x:{grid:{display:false}},y:{max:60,ticks:{callback:v=>v+'%'},grid:{color:'#f0f4f8'}}}}
 });
 
-// 바스켓 분석
-const baskets=[
-  {combo:'선케어(UV) + 선케어(UV) + 선케어(UV)',support:'16.4%',lift:2.60,level:'very-high',note:'UV 제품 3개 동시 구매 — 가장 강한 동반구매 패턴'},
-  {combo:'선케어(UV) + 선케어(UV) + 에센스/세럼',support:'22.6%',lift:2.41,level:'very-high',note:'UV 집중 구매 + 에센스 조합'},
-  {combo:'선케어(UV) + 선케어(UV) + 보습크림',support:'18.8%',lift:2.40,level:'very-high',note:'UV 집중 구매 + 보습 조합'},
-  {combo:'세안료 + 유액/로션 + 에센스/세럼',support:'38.8%',lift:1.44,level:'high',note:'기초 풀 루틴 조합'},
-  {combo:'세안료 + 에센스/세럼 + 선케어',support:'47.1%',lift:1.32,level:'mid',note:'아침 루틴 3종 세트'},
-  {combo:'세안료 + 보습크림 + 선케어',support:'52.9%',lift:1.30,level:'mid',note:'가장 보편적인 3단계 루틴'},
-  {combo:'세안료 + 보습크림 + 에센스/세럼',support:'38.2%',lift:1.28,level:'mid',note:'저녁 루틴 중심 조합'},
-];
-const liftColor={
-  'very-high':'#e94560','high':'#ed8936','mid':'#4299e1'
-};
-const liftBg={'very-high':'#fff5f5','high':'#fffaf0','mid':'#ebf8ff'};
-const bb=document.getElementById('basketBody');
-baskets.forEach((b,i)=>{
-  bb.innerHTML+=`<tr>
-    <td style="font-weight:700;color:#718096">${i+1}</td>
-    <td style="font-weight:600">${b.combo}</td>
-    <td style="text-align:center">${b.support}</td>
-    <td style="text-align:center"><span class="lift-badge" style="background:${liftBg[b.level]};color:${liftColor[b.level]};border:1px solid ${liftColor[b.level]}">Lift ${b.lift}</span></td>
-    <td style="color:#718096;font-size:10px">${b.note}</td>
-  </tr>`;
+// ★ 신규: Q3 희망 vs Q13 실제 갭 (전체 기준)
+new Chart(document.getElementById('itemGapChart'), {
+  type:'bar',
+  data:{labels:['화장수/토너','에센스/미용액','유액/로션','크림','클렌징','선케어'],
+    datasets:[
+      {label:'Q3 라인 사용 희망',data:[69.7,58.4,51.1,46.1,34.1,27.5],backgroundColor:'rgba(66,153,225,0.7)',borderRadius:3},
+      {label:'Q13 실제 사용',data:[49.1,31.9,19.6,46.5,36.8,null],backgroundColor:'rgba(233,69,96,0.7)',borderRadius:3},
+    ]},
+  options:{responsive:true,
+    plugins:{legend:{position:'bottom',labels:{boxWidth:9,padding:8}},
+      tooltip:{callbacks:{label:c=>c.raw!==null?` ${c.dataset.label}: ${c.raw}%`:' 데이터 없음'}}},
+    scales:{x:{grid:{display:false}},y:{max:80,ticks:{callback:v=>v+'%'},grid:{color:'#f0f4f8'}}}}
 });
+
+// ★ 수정: Basket Analysis — Q3 라인 사용 희망 기반 (화장수/토너가 앵커 아이템)
+const baskets=[
+  {c:'선케어(日焼け止め) + ?(복합 UV) + ?(복합 UV)',s:'16.4% (n=83)',l:2.60,lv:'vh',n:'선케어 복수 동반 희망 — 가장 강한 패턴'},
+  {c:'선케어 + ?(복합 UV) + 에센스/미용액',s:'22.6% (n=114)',l:2.41,lv:'vh',n:'선케어 집중 + 에센스 조합'},
+  {c:'선케어 + ?(복합 UV) + 크림',s:'18.8% (n=95)',l:2.40,lv:'vh',n:'선케어 집중 + 크림 조합'},
+  {c:'화장수/토너 + 유액/로션 + 에센스/미용액',s:'38.8% (n=196)',l:1.44,lv:'h',n:'화장수 중심 풀 루틴'},
+  {c:'화장수/토너 + 유액/로션 + 클렌징',s:'32.5% (n=164)',l:1.38,lv:'h',n:'화장수 + 세정 조합'},
+  {c:'화장수/토너 + 유액/로션 + 선케어',s:'44.0% (n=222)',l:1.37,lv:'h',n:'화장수 + 아침 루틴'},
+  {c:'화장수/토너 + 에센스/미용액 + 유액/로션',s:'47.1% (n=238)',l:1.32,lv:'m',n:'3단계 기초 루틴'},
+  {c:'화장수/토너 + 에센스/미용액 + 크림',s:'52.9% (n=267)',l:1.30,lv:'m',n:'가장 보편적인 3단계 (지지도 최대)'},
+  {c:'화장수/토너 + 크림 + 에센스/미용액',s:'38.2% (n=193)',l:1.28,lv:'m',n:'크림 중심 보습 루틴'},
+];
+const lc={'vh':'#e94560','h':'#ed8936','m':'#4299e1'};
+const lb={'vh':'#fff5f5','h':'#fffaf0','m':'#ebf8ff'};
+document.getElementById('basketBody').innerHTML = baskets.map((b,i)=>`<tr>
+  <td style="font-weight:700;color:#718096">${i+1}</td><td style="font-weight:600">${b.c}</td>
+  <td style="text-align:center;font-size:10px">${b.s}</td>
+  <td style="text-align:center"><span class="lbadge" style="background:${lb[b.lv]};color:${lc[b.lv]};border:1px solid ${lc[b.lv]}">Lift ${b.l}</span></td>
+  <td style="text-align:center"><span class="lbadge" style="background:${lb[b.lv]};color:${lc[b.lv]}">${b.lv==='vh'?'매우 강함':b.lv==='h'?'강함':'중간'}</span></td>
+  <td style="color:#718096;font-size:10px">${b.n}</td></tr>`).join('');
 
 // ── TAB6: 실제 시장 ──────────────────────────────────────
-new Chart(document.getElementById('realAwarenessChart'), {
+new Chart(document.getElementById('realAwaChart'), {
   type:'bar',
-  data:{
-    labels:['25-29세\n(N=2,269)','30대\n(N=4,680)','40대\n(N=5,805)','50대\n(N=6,549)','60-65세\n(N=3,277)'],
+  data:{labels:['25-29세\n(N=2,269)','30대\n(N=4,680)','40대\n(N=5,805)','50대\n(N=6,549)','60-65세\n(N=3,277)'],
     datasets:[
       {label:'BOH 인지율',data:[11.8,8.7,5.2,3.1,1.4],backgroundColor:'#e94560',borderRadius:4},
       {label:'BOH 구매율',data:[5.1,3.2,2.0,0.9,0.4],backgroundColor:'#fc8181',borderRadius:4},
-    ]
-  },
+    ]},
   options:{responsive:true,
     plugins:{legend:{position:'bottom',labels:{boxWidth:9}},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.raw}%`}}},
     scales:{x:{grid:{display:false}},y:{ticks:{callback:v=>v+'%'},grid:{color:'#f0f4f8'}}}}
@@ -766,40 +1003,40 @@ new Chart(document.getElementById('realAwarenessChart'), {
 
 new Chart(document.getElementById('compareChart'), {
   type:'bar',
-  data:{
-    labels:['BOH 인지율','BOH 구매 경험율','BOH 주 사용율'],
+  data:{labels:['BOH 인지율','BOH 구매 경험율','BOH 주 사용율'],
     datasets:[
       {label:'본조사 N=505 (BOH 인지자 한정)',data:[100,48.1,15.4],backgroundColor:'#fc8181',borderRadius:4},
       {label:'실제 시장 N=22,578',data:[5.4,2.0,0.8],backgroundColor:'#4299e1',borderRadius:4},
-    ]
-  },
+    ]},
   options:{responsive:true,
     plugins:{legend:{position:'bottom',labels:{boxWidth:9}},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.raw}%`}}},
     scales:{x:{grid:{display:false}},y:{ticks:{callback:v=>v+'%'},grid:{color:'#f0f4f8'}}}}
 });
 
-new Chart(document.getElementById('realBrandAwareness'), {
+// ★ 수정: 실제 시장 브랜드 인지율 (Appendix 데이터 정확 반영)
+new Chart(document.getElementById('realBrandChart'), {
   type:'bar',
-  data:{
-    labels:['BOH','VT','medicube','numbuzin','Anua','메디힐','토리든','ELIXIR','Obagi','Curel','MINON'],
+  data:{labels:bShort,
     datasets:[{label:'실제 인지율 (N=22,578)',
       data:[5.4,8.3,14.9,10.2,12.8,12.9,11.2,50.0,44.1,53.9,45.0],
       backgroundColor:['#e94560',...Array(6).fill('#bee3f8'),...Array(4).fill('#63b3ed')],
-      borderRadius:4,borderSkipped:false}]
-  },
+      borderRadius:4,borderSkipped:false}]},
   options:{indexAxis:'y',responsive:true,
     plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.raw}%`}}},
     scales:{x:{min:0,max:65,ticks:{callback:v=>v+'%'},grid:{color:'#f0f4f8'}},y:{grid:{display:false}}}}
 });
-// ── 다운로드 버튼 ────────────────────────────────────────
-document.getElementById('dlBtn').addEventListener('click', function(e) {
-  e.preventDefault();
-  const html = document.documentElement.outerHTML;
-  const blob = new Blob([html], {type: 'text/html;charset=utf-8'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url; a.download = 'skincare_dashboard.html';
-  a.click(); URL.revokeObjectURL(url);
+
+// ── TAB7: 전략 제안 ──────────────────────────────────────
+new Chart(document.getElementById('targetChart'), {
+  type:'bar',
+  data:{labels:['20-30대 현재 팬\n(인지·구매 완료)','20-30대 인지\n미구매자','40-50대 스킨케어\n고관심층','60-65세\n미개척층'],
+    datasets:[
+      {label:'공략 우선순위',data:[85,70,75,30],backgroundColor:['#48bb78','#e94560','#4299e1','#cbd5e0'],borderRadius:5},
+      {label:'시장 규모 잠재력',data:[40,55,80,60],backgroundColor:['rgba(72,187,120,0.3)','rgba(233,69,96,0.3)','rgba(66,153,225,0.3)','rgba(203,213,224,0.3)'],borderRadius:5},
+    ]},
+  options:{responsive:true,
+    plugins:{legend:{position:'bottom',labels:{boxWidth:9}},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.raw}`}}},
+    scales:{x:{grid:{display:false},ticks:{font:{size:9}}},y:{max:100,ticks:{display:false},grid:{display:false}}}}
 });
 </script>
 </body>
